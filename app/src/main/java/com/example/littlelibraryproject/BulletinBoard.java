@@ -6,3 +6,4 @@ public class BulletinBoard {
     //LibraryID
     //Message content
 }
+
