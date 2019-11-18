@@ -1,4 +1,4 @@
-package com.example.littlelibraryproject.ui;
+package com.example.littlelibraryproject;
 
 import androidx.fragment.app.FragmentActivity;
 
