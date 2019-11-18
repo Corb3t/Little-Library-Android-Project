@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "906107487826",
+    "firebase_url": "https://little-library-project.firebaseio.com",
+    "project_id": "little-library-project",
+    "storage_bucket": "little-library-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906107487826:android:ce8a766cd080779108818b",
+        "android_client_info": {
+          "package_name": "com.example.littlelibraryproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906107487826-7d7osloqunobhutsrs2i8ri0j0mq39ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO-4XhmxCVUOj9EQMsKCgHdHq0kgD380o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906107487826-7d7osloqunobhutsrs2i8ri0j0mq39ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

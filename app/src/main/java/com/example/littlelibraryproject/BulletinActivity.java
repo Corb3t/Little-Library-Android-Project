@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class BulletinActivity extends AppCompatActivity {
 
+    //test
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
