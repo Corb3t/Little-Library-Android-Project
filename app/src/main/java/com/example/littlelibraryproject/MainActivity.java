@@ -13,7 +13,7 @@ import com.example.littlelibraryproject.R;
 public class MainActivity extends AppCompatActivity {
     private Button button;
 
-    //variables
+    //variables  
     private boolean mLocationPermissionGranted = false;
 
     @Override
