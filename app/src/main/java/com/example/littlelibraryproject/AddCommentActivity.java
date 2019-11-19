@@ -1,9 +1,15 @@
 package com.example.littlelibraryproject;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+// Phil's activity! Yay!
+// Need to...
+// Get pics from pics DB
+// Get address from DB
+// Link to user's favorite libraries
+//
 public class AddCommentActivity extends AppCompatActivity {
 
     @Override

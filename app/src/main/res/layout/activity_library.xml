@@ -7,12 +7,32 @@
     tools:context=".LibraryActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonAddPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="369dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="192dp"
         android:text="Add Photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonWalkingDirections"
+        android:layout_width="268dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="640dp"
+        android:text="Direct Me"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewLibrary"
+        android:layout_width="187dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="133dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddPhoto"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 </androidx.constraintlayout.widget.ConstraintLayout>
