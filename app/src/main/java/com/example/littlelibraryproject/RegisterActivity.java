@@ -3,11 +3,12 @@ package com.example.littlelibraryproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView textViewRegisterMessage, textViewRegisterEnterEmailPrompt;
     TextView textViewRegisterEnterPasswordPrompt, textViewRegisterReenterPasswordPrompt;
@@ -30,6 +31,16 @@ public class RegisterActivity extends AppCompatActivity {
         editTextRegisterReenterPassword= findViewById(R.id.editTextRegisterReenterPassword);
         buttonRegisterStartPrompt = findViewById(R.id.buttonRegisterStartPrompt);
 
-        
+        buttonRegisterStartPrompt.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if (view == buttonRegisterStartPrompt) {
+            
+        }
     }
 }
