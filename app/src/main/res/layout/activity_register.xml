@@ -7,7 +7,7 @@
     tools:context=".RegisterActivity">
 
     <TextView
-        android:id="@+id/textViewRegisterReenterPrompt"
+        android:id="@+id/textViewRegisterReenterPasswordPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterReenterPrompt" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterReenterPasswordPrompt" />
 
     <TextView
         android:id="@+id/textViewRegisterMessage"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewRegisterMessage" />
 
     <TextView
-        android:id="@+id/textViewRegisterPasswordPrompt"
+        android:id="@+id/textViewRegisterEnterPasswordPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
@@ -97,10 +97,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterPasswordPrompt" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterEnterPasswordPrompt" />
 
     <Button
-        android:id="@+id/buttonRegisterStart"
+        android:id="@+id/buttonRegisterStartPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"

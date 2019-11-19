@@ -16,7 +16,7 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        button = (Button) findViewById(R.id.buttonRegisterStart);
+        button = (Button) findViewById(R.id.buttonRegisterStartPrompt);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
