@@ -44,14 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 openLibraryActivity();
             }
         });
-
-        button = (Button) findViewById(R.id.button4);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openPhotoActivity();
-            }
-        });
     }
 
     public void openMapsActivity() {
@@ -68,11 +60,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LibraryActivity.class);
         startActivity(intent);
     }
-
-    public void openPhotoActivity() {
-        Intent intent = new Intent(this, AddPhotoActivity.class);
-        startActivity(intent);
-    }
-
-    
 }
