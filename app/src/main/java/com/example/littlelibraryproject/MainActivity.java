@@ -16,7 +16,6 @@ import com.example.littlelibraryproject.R;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
 
     private boolean mLocationPermissionGranted = false;
 
@@ -25,29 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openMapsActivity();
-            }
-        });
-
-        button = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openUsersActivity();
-            }
-        });
-
-        button = (Button) findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openLibraryActivity();
-            }
-        });
     }
 
     @Override
@@ -77,20 +53,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(LibraryIntent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void openMapsActivity() {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-    }
-
-    public void openUsersActivity() {
-        Intent intent = new Intent(this, UsersActivity.class);
-        startActivity(intent);
-    }
-
-    public void openLibraryActivity() {
-        Intent intent = new Intent(this, LibraryActivity.class);
-        startActivity(intent);
     }
 }
