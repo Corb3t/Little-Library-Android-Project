@@ -7,32 +7,54 @@
     tools:context=".LibraryActivity">
 
     <Button
-        android:id="@+id/buttonAddPhoto"
+        android:id="@+id/buttonNavigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="193dp"
-        android:text="Add Photo"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="96dp"
+        android:text="Get me there!"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="142dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
+        android:text="Book genres go here"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="68dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonAddPhoto"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[3]" />
 
     <Button
-        android:id="@+id/buttonNavigation"
+        android:id="@+id/buttonAddPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="58dp"
-        android:text="Get me there!"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="244dp"
+        android:text="Add Photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="216dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="29dp"
+        android:text="Address goes here"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
