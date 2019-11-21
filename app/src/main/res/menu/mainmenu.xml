@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemLogin"
+        android:title="Login" />
+    <item
+        android:id="@+id/itemMap"
+        android:title="Map" />
+    <item
+        android:id="@+id/itemUsers"
+        android:title="User Profile Page" />
+    <item
+        android:id="@+id/itemLibrary"
+        android:title="Library Page" />
+</menu>
