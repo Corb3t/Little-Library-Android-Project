@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean mLocationPermissionGranted = false;
 
 
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

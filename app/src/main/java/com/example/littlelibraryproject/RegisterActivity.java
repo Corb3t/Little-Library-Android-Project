@@ -46,7 +46,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final DatabaseReference myRef = database.getReference("Users");
 
         if (view == buttonRegisterStartPrompt) {
+            String RegisterEmail = editTextRegisterEnterEmail.getText().toString();
 
+            User NewUser = new User(RegisterEmail);
+
+            myRef.push().setValue(NewUser);
         }
     }
 }
