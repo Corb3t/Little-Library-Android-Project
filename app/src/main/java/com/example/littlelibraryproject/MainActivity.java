@@ -25,6 +25,8 @@ import android.widget.Toast;
 import com.example.littlelibraryproject.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     //variables
     private boolean mLocationPermissionGranted = false;
+    private FusedLocationProviderClient mFusedLocationClient;
 
 
 
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
     }
 

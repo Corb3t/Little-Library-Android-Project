@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapTestActivity"></activity>
+        <activity android:name=".AddLibraryActivity"></activity>
+        <activity android:name=".MapTestActivity" />
         <activity android:name=".UsersActivity" />
         <activity android:name=".LibraryActivity" />
         <!--
