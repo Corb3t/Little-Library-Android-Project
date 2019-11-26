@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddLibraryActivity"></activity>
+        <activity android:name=".BadgeFirstCommentActivity"></activity>
+        <activity android:name=".BadgeFivePhotosActivity" />
+        <activity android:name=".BadgeFirstPhotoActivity" />
+        <activity android:name=".AddLibraryActivity" />
         <activity android:name=".MapTestActivity" />
         <activity android:name=".ProfileCreationActivity" />
         <activity android:name=".LibraryActivity" />
