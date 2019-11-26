@@ -32,12 +32,12 @@ public class BadgeActivity extends AppCompatActivity {
            textViewTD = findViewById ( R.id.textViewTD );
            editTextDate= findViewById ( R.id.editTextDate ) ;
 
-            String Username = textViewUser.getText ().toString ();
-            String UserBadgeD = textViewD.getText().toString();
-            String UserBadgeTD = textViewTD.getText ().toString ();
-            String Date = editTextDate.getText ().toString ();
-            String image =  imageViewBadge.getImageMatrix ().toShortString ();
 
+        String Username = textViewUser.getText ().toString ();
+        String UserBadgeD = textViewD.getText().toString();
+        String UserBadgeTD = textViewTD.getText ().toString ();
+        String Date = editTextDate.getText ().toString ();
+        String image =  imageViewBadge.getImageMatrix ().toShortString ();
 
     }
 
