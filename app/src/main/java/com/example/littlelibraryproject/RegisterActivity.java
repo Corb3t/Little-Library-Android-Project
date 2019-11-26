@@ -62,9 +62,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                User NewUser = new User(email);
+                               User NewUser = new User(email);
 
                                 myRef.push().setValue(NewUser);
+
 
                             } else {
 
