@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".AddLibraryActivity"></activity>
         <activity android:name=".MapTestActivity" />
-        <activity android:name=".UsersActivity" />
+        <activity android:name=".ProfileCreationActivity" />
         <activity android:name=".LibraryActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
