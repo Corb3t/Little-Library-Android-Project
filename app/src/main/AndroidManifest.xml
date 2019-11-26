@@ -7,6 +7,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UsersActivity"></activity>
+        <activity android:name=".AddLibraryActivity"></activity>
+        <activity android:name=".MapTestActivity" />
+        <activity android:name=".ProfileCreationActivity" />
         <activity android:name=".LibraryActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -25,10 +28,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -47,6 +46,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAFBv6ZzTbTloSeuJVAci-2GLJiHjfVzGY" />
     </application>
 
 </manifest>
