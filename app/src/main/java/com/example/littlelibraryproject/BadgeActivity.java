@@ -40,7 +40,7 @@ public class BadgeActivity extends AppCompatActivity {
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("littilelibraryproject");
+    DatabaseReference myRef = database.getReference("Users");
 
     String Username = textViewUser.getText ().toString ();
     String UserBadgeD = textViewD.getText().toString();
