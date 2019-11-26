@@ -1,11 +1,17 @@
 package com.example.littlelibraryproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class BadgeActivity extends AppCompatActivity {
 
@@ -26,6 +32,12 @@ public class BadgeActivity extends AppCompatActivity {
            textViewTD = findViewById ( R.id.textViewTD );
            editTextDate= findViewById ( R.id.editTextDate ) ;
 
+            String Username = textViewUser.getText ().toString ();
+            String UserBadgeD = textViewD.getText().toString();
+            String UserBadgeTD = textViewTD.getText ().toString ();
+            String Date = editTextDate.getText ().toString ();
+            String image =  imageViewBadge.getImageMatrix ().toShortString ();
+
 
     }
 
@@ -33,5 +45,7 @@ public class BadgeActivity extends AppCompatActivity {
 
 
 
-
 }
+
+
+
