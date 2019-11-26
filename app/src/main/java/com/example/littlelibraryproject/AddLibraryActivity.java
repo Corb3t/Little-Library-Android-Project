@@ -18,8 +18,7 @@ public class AddLibraryActivity extends AppCompatActivity {
 
     }
 
-    // Write a message to the database
 
-//    DatabaseReference myRef = mDb.getReference("message");
+
 
 }
