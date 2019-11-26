@@ -45,36 +45,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
 
-        if (view == buttonLoginLogin){
-
-            //Need to figure out how to get email and password from registerActivity
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-
-                                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-
-
-                            }
-
-                            // ...
-                        }
-                    });
-        }
-
-
-        else if (view == buttonLoginRegister){
-
-            Intent registerIntent = new Intent(this, RegisterActivity.class);
-            startActivity(registerIntent);
-
-
-
-        }
+//        if (view == buttonLoginLogin){
+//
+//            //Need to figure out how to get email and password from registerActivity
+//            mAuth.signInWithEmailAndPassword(email, password)
+//                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if (task.isSuccessful()) {
+//
+//                                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+//                            } else {
+//                                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+//
+//
+//                            }
+//
+//                            // ...
+//                        }
+//                    });
+//        }
+//
+//
+//        else if (view == buttonLoginRegister){
+//
+//            Intent registerIntent = new Intent(this, RegisterActivity.class);
+//            startActivity(registerIntent);
+//
+//
+//
+//        }
 
 
 
