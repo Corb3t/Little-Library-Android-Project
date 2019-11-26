@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean mLocationPermissionGranted = false;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +54,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
 }
