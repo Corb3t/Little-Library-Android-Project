@@ -33,15 +33,20 @@ public class BadgeActivity extends AppCompatActivity {
            editTextDate= findViewById ( R.id.editTextDate ) ;
 
 
-        String Username = textViewUser.getText ().toString ();
-        String UserBadgeD = textViewD.getText().toString();
-        String UserBadgeTD = textViewTD.getText ().toString ();
-        String Date = editTextDate.getText ().toString ();
-        String image =  imageViewBadge.getImageMatrix ().toShortString ();
+
+
 
     }
 
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("littilelibraryproject");
+
+    String Username = textViewUser.getText ().toString ();
+    String UserBadgeD = textViewD.getText().toString();
+    String UserBadgeTD = textViewTD.getText ().toString ();
+    String Date = editTextDate.getText ().toString ();
+    String image =  imageViewBadge.getImageMatrix ().toShortString ();
 
 
 
