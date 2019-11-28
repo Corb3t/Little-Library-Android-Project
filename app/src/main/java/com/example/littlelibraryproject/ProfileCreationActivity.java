@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UsersActivity extends AppCompatActivity {
+public class ProfileCreationActivity extends AppCompatActivity {
+    //test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

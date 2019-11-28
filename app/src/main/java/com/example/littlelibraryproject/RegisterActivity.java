@@ -1,5 +1,6 @@
 package com.example.littlelibraryproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText editTextRegisterReenterPassword;
     Button buttonRegisterStartPrompt;
 
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         buttonRegisterStartPrompt.setOnClickListener(this);
 
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -45,12 +52,30 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("Users");
 
+        final String email = editTextRegisterEnterEmail.getText().toString();
+        final String password = editTextRegisterEnterPassword.getText().toString();
+
         if (view == buttonRegisterStartPrompt) {
-            String RegisterEmail = editTextRegisterEnterEmail.getText().toString();
 
-            User NewUser = new User(RegisterEmail);
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                               User NewUser = new User(email);
 
-            myRef.push().setValue(NewUser);
+                                myRef.push().setValue(NewUser);
+
+
+                            } else {
+
+                            }
+
+                            // ...
+                        }
+                    });
+
+
         }
     }
 }
