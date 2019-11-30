@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -57,25 +58,28 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (view == buttonRegisterStartPrompt) {
 
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                               User NewUser = new User(email);
+            if (!(password.equals(editTextRegisterReenterPassword.getText().toString()))) {
 
-                                myRef.push().setValue(NewUser);
+                Toast.makeText(this, "Your entered password is inconsistent", Toast.LENGTH_SHORT).show();
+            } else {
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    User NewUser = new User(email);
+                                    myRef.push().setValue(NewUser);
 
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
 
-                            } else {
+                                }
 
                             }
-
-                            // ...
-                        }
-                    });
-
-
+                        });
+            }
         }
+
+
     }
 }
