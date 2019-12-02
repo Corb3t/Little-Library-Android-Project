@@ -2,36 +2,48 @@ package com.example.littlelibraryproject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-public class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
+import java.io.ByteArrayOutputStream;
+
+public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity {
 
     private static final int PERMISSION_CODE = 1000;
-    Button buttonCamera;
+    Button buttonCamera,buttonUpload;
     ImageView mImageView;
 
     Uri image_uri;
     private int IMAGE_CAPTURE_CODE=1001;
     private int ALBUM_RESULT_CODE=1002;
+    private Bitmap mImageBitmap;
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
 
 
     @Override
@@ -42,9 +54,72 @@ public class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
 
         mImageView =findViewById ( R.id.mImageView );
         buttonCamera=findViewById ( R.id.buttonCamera );
+        buttonUpload=findViewById ( R.id.buttonUpload );
 
-        //button click
+// Get a non-default bucket from a custom FirebaseApp
+        final FirebaseStorage storage = FirebaseStorage.getInstance( "gs://littlelibraryproject-dbdcb.appspot.com/");
+
+        //button click upload
+
+        buttonUpload.setOnClickListener ( new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                // Create a storage reference from our app
+
+                StorageReference storageRef = storage.getReference();
+                FirebaseUser user=mAuth.getCurrentUser ();
+                String uid= user.getUid ();
+
+
+
+// Create a reference to 'images/mountains.jpg'
+               // StorageReference mountainImagesRef = storageRef.child("images/mountains.jpg/");
+                StorageReference imageFolderoRef = storageRef.child ( "images" );
+                StorageReference useridRef= imageFolderoRef.child ( uid );
+                StorageReference imageRef= useridRef.child ( "mountain.ipg" );
+
+
+
+
+// While the file names are the same, the references point to different files
+                imageRef .getName().equals(imageRef.getName());    // true
+               imageRef .getPath().equals(imageRef.getPath());    // false
+
+
+                // Get the data from an ImageView as bytes
+                mImageView.setDrawingCacheEnabled(true);
+                mImageView.buildDrawingCache();
+                Bitmap bitmap = ((BitmapDrawable) mImageView.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] data = baos.toByteArray();
+
+                UploadTask uploadTask = imageRef.putBytes(data);
+                uploadTask.addOnFailureListener(new OnFailureListener () {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot> () {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                        // ...
+                    }
+                });
+
+
+
+
+            }
+        } );
+
+
+
+        //button click camera
         buttonCamera.setOnClickListener ( new View.OnClickListener () {
+
 
 
 
@@ -128,6 +203,16 @@ public class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
         }
     }
 
+    private void handleSmallCameraPhoto(Intent intent) {
+        Bundle extras = intent.getExtras();
+        mImageBitmap = (Bitmap) extras.get("data");
+        mImageView.setImageBitmap(mImageBitmap);
+    }
+
+
+
+
+
 
 
     //open album
@@ -139,5 +224,6 @@ public class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
 
 
     }
+
 
 }
