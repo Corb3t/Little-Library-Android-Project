@@ -23,7 +23,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public abstract class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
+public class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
 
     private static final int PERMISSION_CODE = 1000;
     Button buttonCamera;
@@ -128,27 +128,6 @@ public abstract class AddPhoto2activity<mPhotoFile> extends AppCompatActivity {
         }
     }
 
-
-
-    public String getSDPath(){
-        File sdDir = null;
-        boolean sdCardExist = Environment.getExternalStorageState()
-                .equals(android.os.Environment.MEDIA_MOUNTED);   //判断sd卡是否存在
-        if   (sdCardExist)
-        {
-            sdDir = Environment.getExternalStorageDirectory();//获取跟目录
-        }
-        return sdDir.toString();
-
-    }
-
-
-    private String getPhotoFileName() {
-        Date date = new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "'IMG'_yyyyMMdd_HHmmss");
-        return dateFormat.format(date)  +".jpg";
-    }
 
 
     //open album
