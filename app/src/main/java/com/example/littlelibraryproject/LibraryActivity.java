@@ -27,7 +27,7 @@ public class LibraryActivity extends AppCompatActivity {
 
 
     public void openAddPhotoActivity() {
-        Intent intent = new Intent(this, AddPhotoActivity.class);
+        Intent intent = new Intent(this, AddPhoto2activity.class);
         startActivity(intent);
     }
 

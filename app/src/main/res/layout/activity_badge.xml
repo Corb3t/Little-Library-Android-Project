@@ -6,39 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".BadgeActivity">
 
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="201dp"
+        android:src="@drawable/user"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBadge"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="189dp"
         android:layout_marginBottom="25dp"
+        android:inputType="date"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewUserPhoto"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewUserPhoto"
-        android:layout_width="107dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="116dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewBadge"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUser"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="117dp"
@@ -46,8 +47,6 @@
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/imageViewBadge"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewUserPhoto"
         app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
 
     <TextView
@@ -63,6 +62,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewBadge" />
+
+
 
     <ImageView
         android:id="@+id/imageViewBadge"
