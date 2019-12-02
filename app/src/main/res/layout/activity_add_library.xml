@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewAddLibraryLongPrompt" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewAddLibraryWelcomePrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryLong" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTextAddLibraryWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -90,5 +90,17 @@
         android:hint="Enter welcome message here"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextAddLibraryLong"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddLibraryWelcomePrompt" />
+
+    <Button
+        android:id="@+id/buttonAddLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
+        android:text="Add a Library"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryWelcome" />
 </androidx.constraintlayout.widget.ConstraintLayout>

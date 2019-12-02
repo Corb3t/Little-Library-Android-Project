@@ -177,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
             startActivity(LibraryIntent);
+        } else if (item.getItemId() == R.id.itemAddLibrary) {
+            Intent AddLibraryIntent = new Intent(this, AddLibraryActivity.class);
+            startActivity(AddLibraryIntent);
         }
         return super.onOptionsItemSelected(item);
     }
