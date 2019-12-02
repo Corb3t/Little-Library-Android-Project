@@ -61,6 +61,10 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
                 myRef.push().setValue(createLibrary);
 
                 Toast.makeText(this, "Library added successfully", Toast.LENGTH_SHORT).show();
+                editTextAddLibraryName.setText("");
+                editTextAddLibraryLat.setText("");
+                editTextAddLibraryLong.setText("");
+                editTextAddLibraryWelcome.setText("");
 
             } catch(Exception e) {
                 Toast.makeText(this, "Library failed to be added", Toast.LENGTH_SHORT).show();
