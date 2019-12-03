@@ -40,7 +40,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
     Uri image_uri;
     private int IMAGE_CAPTURE_CODE=1001;
     private int ALBUM_RESULT_CODE=1002;
-    private Bitmap mImageBitmap;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -205,8 +204,8 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
     private void handleSmallCameraPhoto(Intent intent) {
         Bundle extras = intent.getExtras();
-        mImageBitmap = (Bitmap) extras.get("data");
-        mImageView.setImageBitmap(mImageBitmap);
+        Bitmap mImageBitmap = (Bitmap) extras.get ( "data" );
+        mImageView.setImageBitmap( mImageBitmap );
     }
 
 
