@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        Intent loginIntent= new Intent(this, LoginActivity.class);
+        startActivity(loginIntent);
+
     }
 
     private boolean checkMapServices(){ //validates that google services works
@@ -180,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.itemAddLibrary) {
             Intent AddLibraryIntent = new Intent(this, AddLibraryActivity.class);
             startActivity(AddLibraryIntent);
+        }
+        else if (item.getItemId() == R.id.itemLogOut){
+
+            /// Implement log out funcitonality here
         }
         return super.onOptionsItemSelected(item);
     }
