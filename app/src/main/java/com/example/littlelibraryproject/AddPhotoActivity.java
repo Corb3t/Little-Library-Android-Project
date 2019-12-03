@@ -13,16 +13,17 @@ public class AddPhotoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_photo);
+        super.onCreate ( savedInstanceState );
+        setContentView ( R.layout.activity_add_photo );
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        MenuInflater inflater = getMenuInflater ();
+        inflater.inflate ( R.menu.mainmenu , menu );
 
-        return super.onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu ( menu );
     }
 
+}
