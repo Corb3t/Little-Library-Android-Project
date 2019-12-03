@@ -49,6 +49,7 @@ public class BadgeActivity extends AppCompatActivity {
     String UserBadgeTD = textViewTD.getText ().toString ();
     String Date = editTextDate.getText ().toString ();
     String image = imageViewBadge.getImageMatrix ().toShortString ();
+    
 
 
 }
