@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.littlelibraryproject.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,7 +17,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText editTextLoginEmail, editTextLoginPassword;
 
-    // comment
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         buttonLoginLogin.setOnClickListener(this);
         buttonLoginGoogle.setOnClickListener(this);
         buttonLoginRegister.setOnClickListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
