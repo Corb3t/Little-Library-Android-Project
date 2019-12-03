@@ -1,3 +1,4 @@
+//Goal of the profile creation page is to collect information and writing it to firebase database
 package com.example.littlelibraryproject;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ public class ProfileCreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+
     }
 
     @Override
