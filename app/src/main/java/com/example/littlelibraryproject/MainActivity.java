@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    //Ask user for permission for GPS location
     private void buildAlertMessageNoGps() { //GPS enable prompt
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("This application requires GPS to work properly, do you want to enable it?")
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mLocationPermissionGranted = true;
-//            getChatrooms();
+//            do something here
         } else {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_ENABLE_GPS: {
                 if(mLocationPermissionGranted){
-//                    getChatrooms();
+//                    do something here
                 }
                 else{
                     getLocationPermission(); //ask for permission
@@ -196,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if(checkMapServices()){
             if(mLocationPermissionGranted){
-//                getChatrooms();
+//                do something here
             }
             else{
                 getLocationPermission();
