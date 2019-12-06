@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -26,7 +28,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    // delete this button later
+    Button buttonEditProfile;
 
     private static final String TAG = "MainActivity";
     public static final int ERROR_DIALOG_REQUEST = 9001;
@@ -45,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+
+        //delete this button later
+
+        buttonEditProfile = findViewById(R.id.buttonEditProfile);
+        buttonEditProfile.setOnClickListener(this);
+
+
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -207,5 +219,16 @@ public class MainActivity extends AppCompatActivity {
                 getLocationPermission();
             }
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if (view == buttonEditProfile){
+
+            Intent editIntent = new Intent(this, EditProfileActivity.class);
+            startActivity(editIntent);
+        }
+
     }
 }
