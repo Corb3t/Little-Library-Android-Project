@@ -44,7 +44,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance ();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
