@@ -50,6 +50,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String email = editTextLoginEmail.getText().toString();
             String password = editTextLoginPassword.getText().toString();
 
+            if (email.isEmpty() || email == null) {
+                editTextLoginEmail.setError("Email cannot be empty");
+                return;
+            }
+
+            if (password.isEmpty() || password == null) {
+                editTextLoginPassword.setError("Password cannot be empty");
+                return;
+            }
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
