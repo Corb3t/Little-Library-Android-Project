@@ -89,8 +89,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
             String createName = editTextName.getText().toString();
             String createGenre = editTextGenre.getText().toString();
-
-           myRef.orderByChild("username").equalTo()
+            
 
 
 
