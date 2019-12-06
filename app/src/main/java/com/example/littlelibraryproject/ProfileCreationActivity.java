@@ -9,13 +9,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ProfileCreationActivity extends AppCompatActivity {
     //test
 
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -49,7 +54,10 @@ public class ProfileCreationActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }

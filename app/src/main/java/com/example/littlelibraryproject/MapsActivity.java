@@ -17,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,7 +25,9 @@ import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
 
+    private FirebaseAuth mAuth;
     private GoogleMap mMap;
+
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 //    private ArrayList<String> mLibraryLocations = new ArrayList<>();
 
@@ -36,6 +39,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -98,7 +103,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }

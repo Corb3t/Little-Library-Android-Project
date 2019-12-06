@@ -23,6 +23,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     //variables
     private boolean mLocationPermissionGranted = false;
     private FusedLocationProviderClient mFusedLocationClient;
+    private FirebaseAuth mAuth;
 
 
 
@@ -42,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        
+
 
     }
 
@@ -164,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.itemLogin) {
             Intent LoginIntent = new Intent(this, LoginActivity.class);
@@ -185,7 +188,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }

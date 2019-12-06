@@ -9,15 +9,20 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     // Write a message to the database
@@ -55,7 +60,10 @@ public class ProfileActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }

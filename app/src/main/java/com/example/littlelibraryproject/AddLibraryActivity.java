@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +27,8 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
     EditText editTextAddLibraryName, editTextAddLibraryLat;
     EditText editTextAddLibraryLong, editTextAddLibraryWelcome;
     Button buttonAddLibrary;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
         editTextAddLibraryLong = findViewById(R.id.editTextAddLibraryLong);
         editTextAddLibraryWelcome = findViewById(R.id.editTextAddLibraryWelcome);
         buttonAddLibrary = findViewById(R.id.buttonAddLibrary);
-
+        mAuth = FirebaseAuth.getInstance();
         buttonAddLibrary.setOnClickListener(this);
     }
 
@@ -113,7 +116,10 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }
