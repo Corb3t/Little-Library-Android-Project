@@ -11,9 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LibraryActivity extends AppCompatActivity {
 
     private Button button;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class LibraryActivity extends AppCompatActivity {
                 openAddPhotoActivity();
             }
         });
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -55,7 +59,7 @@ public class LibraryActivity extends AppCompatActivity {
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
@@ -66,7 +70,10 @@ public class LibraryActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }
