@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);

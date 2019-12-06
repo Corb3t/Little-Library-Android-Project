@@ -11,14 +11,14 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ProfileCreationActivity extends AppCompatActivity {
-    //test
+public class EditProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        setContentView(R.layout.activity_edit_profile);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -43,7 +43,7 @@ public class ProfileCreationActivity extends AppCompatActivity {
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
