@@ -8,6 +8,17 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +27,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddLibraryActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".AddPhoto2activity" />
+        <activity android:name=".BadgeFirstCommentActivity" />
+        <activity android:name=".BadgeFivePhotosActivity" />
+        <activity android:name=".BadgeFirstPhotoActivity" />
+        <activity android:name=".AddLibraryActivity" />
         <activity android:name=".MapTestActivity" />
-        <activity android:name=".ProfileCreationActivity" />
         <activity android:name=".LibraryActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -57,7 +72,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAFBv6ZzTbTloSeuJVAci-2GLJiHjfVzGY" />
+            android:value="AIzaSyDiENh4vdPMEn-6KF8kx2gIP_1aM5YJuEU" />
     </application>
 
 </manifest>

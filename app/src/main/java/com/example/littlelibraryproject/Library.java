@@ -12,13 +12,11 @@ public class Library {
     }
 
 
-    public Library(String libraryName, Double latitude, Double longitude, String genres,
-                String welcomeMessage, String photos) {
+    public Library(String libraryName, Double latitude, Double longitude,
+                String welcomeMessage) {
         this.libraryName = libraryName;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.genres = genres;
         this.welcomeMessage = welcomeMessage;
-        this.photos = photos;
     }
 }

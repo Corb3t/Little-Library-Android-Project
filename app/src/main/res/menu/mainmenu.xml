@@ -14,4 +14,10 @@
     <item
         android:id="@+id/itemLibrary"
         android:title="Library Page" />
+    <item
+        android:id="@+id/itemAddLibrary"
+        android:title="Add a Library" />
+    <item
+        android:id="@+id/itemLogOut"
+        android:title="Log Out" />
 </menu>

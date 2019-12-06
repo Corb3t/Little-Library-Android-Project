@@ -8,15 +8,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class BulletinActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
-    //test
+public class EditProfileActivity extends AppCompatActivity {
+
+    EditText editTextName, editTextGenre;
+    Button buttonSubmit, buttonUploadProfilePhoto;
+
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bulletin);
+        setContentView(R.layout.activity_edit_profile);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -50,7 +60,10 @@ public class BulletinActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }
