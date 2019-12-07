@@ -66,4 +66,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGenre" />
+
+    <EditText
+        android:id="@+id/editTextFavLibrary"
+        android:layout_width="326dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter Your Favorite Little Library"
+        app:layout_constraintBottom_toTopOf="@+id/editTextGenre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
