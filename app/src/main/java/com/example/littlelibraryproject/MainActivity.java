@@ -19,19 +19,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        BottomNavigationView.OnNavigationItemSelectedListener {
 
     // delete this button later
     Button buttonEditProfile;
+
+    private BottomNavigationView mMainNav;
+    private FrameLayout mMainFrame;
 
     private static final String TAG = "MainActivity";
     public static final int ERROR_DIALOG_REQUEST = 9001;
@@ -56,10 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
         buttonEditProfile.setOnClickListener(this);
 
-
-
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        mMainNav = findViewById(R.id.main_nav);
+        mMainFrame = findViewById(R.id.main_frame);
+
+        mMainNav.setOnNavigationItemSelectedListener(this);
 
     }
 
@@ -230,5 +238,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(editIntent);
         }
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        if (menuItem.getItemId() == R.id.navMap) {
+
+            Intent mapIntent = new Intent(MainActivity.this, MapsActivity.class);
+
+            startActivity(mapIntent);
+
+
+
+        } else if (menuItem.getItemId() == R.id.navLibrary) {
+
+            Intent libraryIntent = new Intent(MainActivity.this, LibraryActivity.class);
+
+            startActivity(libraryIntent);
+
+
+
+        } else if (menuItem.getItemId() == R.id.navProfile) {
+
+            Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+
+            startActivity(profileIntent);
+
+        }
+
+        return false;
     }
 }
