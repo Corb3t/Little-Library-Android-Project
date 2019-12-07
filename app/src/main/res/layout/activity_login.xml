@@ -26,7 +26,7 @@
         android:fontFamily="cursive"
         android:text="Welcome to Little Library"
 
-        android:textColor="#4CAF50"
+        android:textColor="#014B1C"
         android:textSize="30sp"
         android:textStyle="bold"
         app:drawableTint="#009688"

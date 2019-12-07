@@ -59,6 +59,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (view == buttonRegisterStartPrompt) {
 
+            if (email.isEmpty() || email == null) {
+                editTextRegisterEnterEmail.setError("Email cannot be empty");
+                return;
+            }
+
+            if (password.isEmpty() || password == null) {
+                editTextRegisterEnterPassword.setError("Password cannot be empty");
+                return;
+            }
+
             if (!(password.equals(editTextRegisterReenterPassword.getText().toString()))) {
 
                 Toast.makeText(this, "Your entered password is inconsistent", Toast.LENGTH_SHORT).show();
