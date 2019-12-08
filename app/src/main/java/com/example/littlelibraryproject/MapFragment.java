@@ -44,34 +44,33 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback, View.OnClickListener {
+public class MapFragment extends Fragment implements View.OnClickListener {
+
+    private GoogleMap mMap;
+    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     public MapFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // trouble transferring
+        super.onCreate(savedInstanceState);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.map);
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_map, container, false);
 
 
     }
-
     @Override
     public void onClick(View view) {
 
     }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        // trouble transferring
-
-    }
-
 }
