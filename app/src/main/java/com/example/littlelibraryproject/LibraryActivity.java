@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LibraryActivity extends AppCompatActivity {
 
@@ -90,8 +92,17 @@ public class LibraryActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.itemLogOut){
 
             FirebaseAuth.getInstance().signOut();
-            Intent mainIntent = new Intent(this, LoginActivity.class);
-            startActivity(mainIntent);
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user == null) {
+                Toast.makeText(this, "You have been logged out", Toast.LENGTH_LONG).show();
+
+                Intent LoginIntent = new Intent(this, LoginActivity.class);
+                startActivity(LoginIntent);
+            } else {
+                Toast.makeText(this, "Log out failed", Toast.LENGTH_SHORT).show();
+            }
+
 
         }
         return super.onOptionsItemSelected(item);

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
 
+    private MapFragment mapFragment;
+    private LibraryFragment libraryFragment;
+    private ProfileFragment profileFragment;
+
     private static final String TAG = "MainActivity";
     public static final int ERROR_DIALOG_REQUEST = 9001;
     public static final int PERMISSIONS_REQUEST_ENABLE_GPS = 9002;
@@ -68,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMainFrame = findViewById(R.id.main_frame);
 
         mMainNav.setOnNavigationItemSelectedListener(this);
+
+        mapFragment = new MapFragment();
+        libraryFragment = new LibraryFragment();
+        profileFragment = new ProfileFragment();
+
+        setFragment(mapFragment);
 
     }
 
@@ -245,28 +257,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (menuItem.getItemId() == R.id.navMap) {
 
-            Intent mapIntent = new Intent(MainActivity.this, MapsActivity.class);
+            setFragment(mapFragment);
 
-            startActivity(mapIntent);
-
+            return true;
 
 
         } else if (menuItem.getItemId() == R.id.navLibrary) {
 
-            Intent libraryIntent = new Intent(MainActivity.this, LibraryActivity.class);
+            setFragment(libraryFragment);
 
-            startActivity(libraryIntent);
-
+            return true;
 
 
         } else if (menuItem.getItemId() == R.id.navProfile) {
 
-            Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+            setFragment(profileFragment);
 
-            startActivity(profileIntent);
+            return true;
 
         }
 
         return false;
+    }
+
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_frame, fragment);
+        fragmentTransaction.commit();
     }
 }
