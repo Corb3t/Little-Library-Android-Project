@@ -29,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private BottomNavigationView mProfileNav;
     private FrameLayout mProfileFrame;
 
-    Button buttonEditProfile;
+    //Button buttonEditProfile;
 
     private MapFragment mapFragment;
     private LibraryFragment libraryFragment;
@@ -43,16 +43,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
 
-        buttonEditProfile = findViewById(R.id.buttonEditProfile);
+        mProfileFrame = findViewById(R.id.profile_frame);
         mProfileNav = findViewById(R.id.profile_nav);
+
+        //buttonEditProfile = findViewById(R.id.buttonEditProfile);
 
         mProfileNav.setOnNavigationItemSelectedListener(this);
 
-        buttonEditProfile.setOnClickListener(this);
+        //buttonEditProfile.setOnClickListener(this);
 
-        mProfileNav = findViewById(R.id.profile_nav);
-
-        mProfileFrame = findViewById(R.id.profile_frame);
 
         mapFragment = new MapFragment();
         libraryFragment = new LibraryFragment();
@@ -115,11 +114,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
 
-        if (view == buttonEditProfile){
-
-            Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
-            startActivity(editProfileIntent);
-        }
+//        if (view == buttonEditProfile){
+//
+//            Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
+//            startActivity(editProfileIntent);
+//        }
 
     }
 
