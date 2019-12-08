@@ -31,6 +31,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+//delete onclicklistener implementation later
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -222,6 +223,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+    //delete onclick later
 
     @Override
     public void onClick(View view) {
