@@ -32,18 +32,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // delete this button later
     Button buttonEditProfile;
-
-    private BottomNavigationView mMainNav;
-    private FrameLayout mMainFrame;
-
-    private MapFragment mapFragment;
-    private LibraryFragment libraryFragment;
-    private ProfileFragment profileFragment;
 
     private static final String TAG = "MainActivity";
     public static final int ERROR_DIALOG_REQUEST = 9001;
@@ -70,16 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        mMainNav = findViewById(R.id.main_nav);
-        mMainFrame = findViewById(R.id.main_frame);
-
-        mMainNav.setOnNavigationItemSelectedListener(this);
-
-        mapFragment = new MapFragment();
-        libraryFragment = new LibraryFragment();
-        profileFragment = new ProfileFragment();
-
-        setFragment(mapFragment);
 
     }
 
@@ -252,38 +234,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-        if (menuItem.getItemId() == R.id.navMap) {
-
-            setFragment(mapFragment);
-
-            return true;
-
-
-        } else if (menuItem.getItemId() == R.id.navLibrary) {
-
-            setFragment(libraryFragment);
-
-            return true;
-
-
-        } else if (menuItem.getItemId() == R.id.navProfile) {
-
-            setFragment(profileFragment);
-
-            return true;
-
-        }
-
-        return false;
-    }
-
-
-    private void setFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_frame, fragment);
-        fragmentTransaction.commit();
-    }
 }
