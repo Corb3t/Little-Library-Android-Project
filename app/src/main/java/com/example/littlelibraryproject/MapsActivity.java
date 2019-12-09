@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -75,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 //hash map data output
-                Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
                 System.out.println(Libraries);
 
             }
@@ -92,11 +93,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //display closest little libraries in maps
 
         // Add a marker in Ann Arbor and move the camera
-        LatLng annarbor = new LatLng(42.28, -83.74);
-        mMap.addMarker(new MarkerOptions().position(annarbor).title("Library #4994329").snippet("Address: 1234 Main St"));
+        LatLng annarbor = new LatLng(42.30456, -83.7333699);
+        LatLng annarbor2 = new LatLng(42.2794, -83.76651);
+        LatLng annarbor3 = new LatLng(42.28024, -83.7563799);
+        LatLng annarbor4 = new LatLng(42.2779682, -83.7591485);
+        LatLng annarbor5 = new LatLng(42.27176, -83.7360999);
+        LatLng annarbor6 = new LatLng(42.27521, -83.73191);
+        LatLng annarbor7 = new LatLng(42.27497, -83.71884);
+        mMap.addMarker(new MarkerOptions().position(annarbor).title("Brookside Book House").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor2).title("Library #15019").snippet("Address: 865 Brookside Dr\n" +
+                "Ann Arbor, MI 48105\n" + "Genres: Crime, Fantasy, Fiction").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor3).title("Library #428024").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor4).title("Library #18656").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor5).title("The Smith's Library").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor6).title("Vertex Coffee Roasters").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+        mMap.addMarker(new MarkerOptions().position(annarbor7).title("Library #58910").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
         mMap.setMyLocationEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(annarbor));
-        float zoomLevel = 15.0f; //This goes up to 21
+        float zoomLevel = 13.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(annarbor, zoomLevel));
     }
 
