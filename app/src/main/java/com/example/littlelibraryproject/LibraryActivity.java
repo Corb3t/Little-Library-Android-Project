@@ -46,6 +46,14 @@ public class LibraryActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance ();
 
+        buttonTakePhoto.setOnClickListener ( new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                openTakePhoto();
+            }
+        } );
+
+
         buttonAddLibraryPhoto.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
@@ -57,10 +65,14 @@ public class LibraryActivity extends AppCompatActivity {
 
     }
 
+    public void openTakePhoto() {
+        Intent intent2 = new Intent ( this,AddPhoto3Activity.class );
+        startActivity ( intent2 );
+    }
 
     public void openAddLibraryPhoto() {
-        Intent intent = new Intent ( this , AddPhoto2activity.class );
-        startActivity ( intent );
+        Intent intent1 = new Intent ( this , AddPhoto2activity.class );
+        startActivity ( intent1 );
     }
 
 
