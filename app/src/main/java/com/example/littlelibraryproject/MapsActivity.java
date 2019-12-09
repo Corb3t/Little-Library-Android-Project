@@ -1,7 +1,6 @@
 package com.example.littlelibraryproject;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -31,11 +30,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
 
     private GoogleMap mMap;
+    private ArrayList<Library> mLibraryLocations = new ArrayList<>();
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
-//    private ArrayList<String> mLibraryLocations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //get all Firebase data using a Hashmap
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Libraries");
+
         final Map<String, Library> Libraries = new HashMap<String, Library>();
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,8 +74,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Libraries.put(l.libraryName, l);
                 }
 
+                //hash map data output
                 Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
-                System.out.println(Libraries.toString());
+                System.out.println(Libraries);
+
             }
 
             @Override
@@ -90,7 +93,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Add a marker in Ann Arbor and move the camera
         LatLng annarbor = new LatLng(42.28, -83.74);
-        mMap.addMarker(new MarkerOptions().position(annarbor).title("Marker in Ann Arbor"));
+        mMap.addMarker(new MarkerOptions().position(annarbor).title("Library #4994329").snippet("Address: 1234 Main St"));
         mMap.setMyLocationEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(annarbor));
         float zoomLevel = 15.0f; //This goes up to 21
@@ -150,7 +153,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Libraries.put(l.libraryName, l);
                     Log.w("MapsActivity", Libraries.toString());
                 }
-
             }
 
             @Override

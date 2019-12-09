@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -53,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //buttonEditProfile.setOnClickListener(this);
 
 
-        mapFragment = new MapFragment();
+//        mapFragment = new MapFragment();
         libraryFragment = new LibraryFragment();
         profileFragment = new ProfileFragment();
 
@@ -127,7 +128,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         if (menuItem.getItemId() == R.id.navMap) {
 
-            setFragment(mapFragment);
+            Intent mapIntent = new Intent(ProfileActivity.this, MapsActivity.class);
+
+            startActivity(mapIntent);
 
             return true;
 
