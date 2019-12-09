@@ -28,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
 
     private BottomNavigationView mProfileNav;
-    private FrameLayout mProfileFrame;
+    //private FrameLayout mProfileFrame;
 
     Button buttonEditProfile;
 
@@ -44,15 +44,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
 
-        mProfileFrame = findViewById(R.id.profile_frame);
+        //mProfileFrame = findViewById(R.id.profile_frame);
         mProfileNav = findViewById(R.id.profile_nav);
 
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
 
         mProfileNav.setOnNavigationItemSelectedListener(this);
+        mProfileNav.getMenu().findItem(R.id.navProfile).setChecked(true);
 
         buttonEditProfile.setOnClickListener(this);
-
 
 //        mapFragment = new MapFragment();
 //        libraryFragment = new LibraryFragment();
@@ -145,7 +145,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         } else if (menuItem.getItemId() == R.id.navProfile) {
 
-            Toast.makeText(this, "You are already in the profile page!", Toast.LENGTH_SHORT).show();
+            Intent profileIntent = new Intent(ProfileActivity.this, ProfileActivity.class);
+
+            startActivity(profileIntent);
 
             return true;
 

@@ -15,16 +15,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
     private Button button;
     Button buttonAddLibraryPhoto, buttonNavigateToLibrary, buttonTakePhoto;
     TextView textViewLibraryGenres, textViewLibraryAddress;
     ImageView imageViewLibraryPhoto;
     private FirebaseAuth mAuth;
+
+    private BottomNavigationView mLibraryNav;
 
 
     ///onCreate starts here
@@ -43,6 +46,10 @@ public class LibraryActivity extends AppCompatActivity {
 
         imageViewLibraryPhoto = findViewById ( R.id.imageViewLibraryPhoto );
 
+        mLibraryNav = findViewById(R.id.library_nav);
+
+        mLibraryNav.setOnNavigationItemSelectedListener(this);
+        mLibraryNav.getMenu().findItem(R.id.navLibrary).setChecked(true);
 
         mAuth = FirebaseAuth.getInstance ();
 
@@ -131,4 +138,37 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        if (menuItem.getItemId() == R.id.navMap) {
+
+            Intent mapIntent = new Intent(LibraryActivity.this, MapsActivity.class);
+
+            startActivity(mapIntent);
+
+            return true;
+
+
+        } else if (menuItem.getItemId() == R.id.navLibrary) {
+
+            Intent libraryIntent = new Intent(LibraryActivity.this, LibraryActivity.class);
+
+            startActivity(libraryIntent);
+
+            return true;
+
+
+        } else if (menuItem.getItemId() == R.id.navProfile) {
+
+            Intent profileIntent = new Intent(LibraryActivity.this, ProfileActivity.class);
+
+            startActivity(profileIntent);
+
+            return true;
+
+        }
+
+        return false;
+    }
 }

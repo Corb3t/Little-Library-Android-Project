@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <FrameLayout
-        android:id="@+id/profile_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/profile_nav"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/profile_nav">
+<!--    <FrameLayout-->
+<!--        android:id="@+id/profile_frame"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@id/profile_nav"-->
+<!--        android:layout_marginBottom="56dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/profile_nav">-->
 
-    </FrameLayout>
+<!--    </FrameLayout>-->
 
     <Button
         android:id="@+id/buttonEditProfile"
