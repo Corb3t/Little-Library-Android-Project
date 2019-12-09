@@ -21,44 +21,54 @@ import com.google.firebase.auth.FirebaseUser;
 public class LibraryActivity extends AppCompatActivity {
 
     private Button button;
-    Button buttonAddLibraryPhoto, buttonNavigateToLibrary;
+    Button buttonAddLibraryPhoto, buttonNavigateToLibrary, buttonTakePhoto;
     TextView textViewLibraryGenres, textViewLibraryAddress;
     ImageView imageViewLibraryPhoto;
     private FirebaseAuth mAuth;
 
 
-///onCreate starts here
+    ///onCreate starts here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library);
-
-        buttonAddLibraryPhoto = findViewById(R.id.buttonAddLibrary);
-        buttonNavigateToLibrary = findViewById(R.id.buttonNavigateToLibrary);
-
-        textViewLibraryAddress = findViewById(R.id.textViewLibraryAddress);
-        textViewLibraryGenres = findViewById(R.id.textViewLibraryGenres);
-
-        imageViewLibraryPhoto = findViewById(R.id.imageViewLibraryPhoto);
+        super.onCreate ( savedInstanceState );
+        setContentView ( R.layout.activity_library );
 
 
-        buttonAddLibraryPhoto.setOnClickListener(new View.OnClickListener(){
+        buttonAddLibraryPhoto = findViewById ( R.id.buttonAddLibraryPhoto );
+        buttonTakePhoto = findViewById ( R.id.buttonTakePhoto );
+        buttonNavigateToLibrary = findViewById ( R.id.buttonNavigateToLibrary );
+
+        textViewLibraryAddress = findViewById ( R.id.textViewLibraryAddress );
+        textViewLibraryGenres = findViewById ( R.id.textViewLibraryGenres );
+
+        imageViewLibraryPhoto = findViewById ( R.id.imageViewLibraryPhoto );
+
+
+        mAuth = FirebaseAuth.getInstance ();
+
+        buttonAddLibraryPhoto.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                openAddPhotoActivity();
+              openAddLibraryPhoto();
+
             }
-        });
+        } );
 
-//comment?
 
-        mAuth = FirebaseAuth.getInstance();
     }
 
-///Not sure what this is or who put it there?
-    public void openAddPhotoActivity() {
-        Intent intent = new Intent(this, AddPhoto2activity.class);
-        startActivity(intent);
+
+    public void openAddLibraryPhoto() {
+        Intent intent = new Intent ( this , AddPhoto2activity.class );
+        startActivity ( intent );
     }
+
+
+
+
+
+
+
 /// Menu items start here
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
