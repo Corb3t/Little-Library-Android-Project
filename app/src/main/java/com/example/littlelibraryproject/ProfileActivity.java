@@ -30,11 +30,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private BottomNavigationView mProfileNav;
     private FrameLayout mProfileFrame;
 
-    //Button buttonEditProfile;
+    Button buttonEditProfile;
 
-    private MapFragment mapFragment;
-    private LibraryFragment libraryFragment;
-    private ProfileFragment profileFragment;
+//    private MapFragment mapFragment;
+//    private LibraryFragment libraryFragment;
+//    private ProfileFragment profileFragment;
 
 
     @Override
@@ -47,23 +47,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         mProfileFrame = findViewById(R.id.profile_frame);
         mProfileNav = findViewById(R.id.profile_nav);
 
-        //buttonEditProfile = findViewById(R.id.buttonEditProfile);
+        buttonEditProfile = findViewById(R.id.buttonEditProfile);
 
         mProfileNav.setOnNavigationItemSelectedListener(this);
 
-        //buttonEditProfile.setOnClickListener(this);
+        buttonEditProfile.setOnClickListener(this);
 
 
 //        mapFragment = new MapFragment();
-        libraryFragment = new LibraryFragment();
-        profileFragment = new ProfileFragment();
+//        libraryFragment = new LibraryFragment();
+//        profileFragment = new ProfileFragment();
 
-        setFragment(profileFragment);
     }
 
-    // Write a message to the database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+//    // Write a message to the database
+//    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference myRef = database.getReference("message");
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,11 +114,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
 
-//        if (view == buttonEditProfile){
-//
-//            Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
-//            startActivity(editProfileIntent);
-//        }
+        if (view == buttonEditProfile){
+
+            Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
+            startActivity(editProfileIntent);
+        }
 
     }
 
@@ -137,14 +136,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         } else if (menuItem.getItemId() == R.id.navLibrary) {
 
-            setFragment(libraryFragment);
+            Intent libraryIntent = new Intent(ProfileActivity.this, LibraryActivity.class);
+
+            startActivity(libraryIntent);
 
             return true;
 
 
         } else if (menuItem.getItemId() == R.id.navProfile) {
 
-            setFragment(profileFragment);
+            Toast.makeText(this, "You are already in the profile page!", Toast.LENGTH_SHORT).show();
 
             return true;
 
@@ -153,9 +154,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         return false;
     }
 
-    private void setFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.profile_frame, fragment);
-        fragmentTransaction.commit();
-    }
+//    private void setFragment(Fragment fragment) {
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.profile_frame, fragment);
+//        fragmentTransaction.commit();
+//    }
 }

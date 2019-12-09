@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navMap"
-        android:icon="@drawable/ic_map"
-        android:title="Navigation" />
+        android:id="@+id/navProfile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
     <item
         android:id="@+id/navLibrary"
         android:icon="@drawable/ic_library"
         android:title="Library" />
     <item
-        android:id="@+id/navProfile"
-        android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+        android:id="@+id/navMap"
+        android:icon="@drawable/ic_map"
+        android:title="Navigation" />
 </menu>
