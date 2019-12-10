@@ -81,6 +81,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String favLibrary = intent.getStringExtra("favLibrary");
 
         //display data on widgets
+        //useless comment
 
 
         //setting the listener
