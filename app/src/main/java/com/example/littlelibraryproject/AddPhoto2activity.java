@@ -69,14 +69,14 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
                 StorageReference storageRef = storage.getReference ();
                 FirebaseUser user = mAuth.getCurrentUser ();
-                String uid = user.getUid ();
+                String uid = user.getUid();
 
 
 // Create a reference to 'images/mountains.jpg'
-                // StorageReference mountainImagesRef = storageRef.child("images/mountains.jpg/");
+                StorageReference phonescrenImagesRef = storageRef.child("images/phonescren.jpg/");
                 StorageReference imageFolderoRef = storageRef.child ( "images" );
                 StorageReference useridRef = imageFolderoRef.child ( uid );
-                StorageReference imageRef = useridRef.child ( "mountain.ipg" );
+                StorageReference imageRef = useridRef.child ( "phonescren.jpg" );
 
 
 // While the file names are the same, the references point to different files
@@ -87,7 +87,16 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
                 // Get the data from an ImageView as bytes
                 mImageView.setDrawingCacheEnabled ( true );
                 mImageView.buildDrawingCache ();
-                Bitmap bitmap = ((BitmapDrawable) mImageView.getDrawable ()).getBitmap ();
+                Bitmap bitmap =null;
+
+
+                try {
+                    bitmap = ((BitmapDrawable) mImageView.getDrawable ()).getBitmap ();
+                }catch (Exception exception) {Toast.makeText (AddPhoto2activity.this, "Please Take a photo first,then upload ", Toast.LENGTH_SHORT).show();
+                return;
+                }
+
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream ();
                 bitmap.compress ( Bitmap.CompressFormat.JPEG , 100 , baos );
                 byte[] data = baos.toByteArray ();
@@ -105,6 +114,7 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
                         // ...
                     }
                 } );
+
 
 
             }
