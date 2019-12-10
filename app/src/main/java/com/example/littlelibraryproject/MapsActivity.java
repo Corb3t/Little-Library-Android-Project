@@ -115,10 +115,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(annarbor, zoomLevel));
 
 
+//Navigate from the infowindow to the library page... gotta figure out how to populate the library page
         googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
+                String name = marker.getTitle();
                 Intent I = new Intent(MapsActivity.this, LibraryActivity.class);
+                I.putExtra("Title", name);
                 startActivity(I);
             }
         });
@@ -128,7 +131,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu, menu);
 

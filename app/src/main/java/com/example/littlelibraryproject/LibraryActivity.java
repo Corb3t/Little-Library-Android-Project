@@ -36,7 +36,6 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_library );
 
-
         buttonAddLibraryPhoto = findViewById ( R.id.buttonAddLibraryPhoto );
         buttonTakePhoto = findViewById ( R.id.buttonTakePhoto );
         buttonNavigateToLibrary = findViewById ( R.id.buttonNavigateToLibrary );
@@ -51,6 +50,9 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         mLibraryNav.setOnNavigationItemSelectedListener(this);
         mLibraryNav.getMenu().findItem(R.id.navLibrary).setChecked(true);
 
+        String name = getIntent().getStringExtra("Title");                                      //Paul help
+        textViewLibraryAddress.setText(name);
+
         mAuth = FirebaseAuth.getInstance ();
 
         buttonTakePhoto.setOnClickListener ( new View.OnClickListener () {
@@ -60,7 +62,6 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
             }
         } );
 
-
         buttonAddLibraryPhoto.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
@@ -68,8 +69,6 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
             }
         } );
-
-
     }
 
     public void openTakePhoto() {
@@ -82,19 +81,11 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         startActivity ( intent1 );
     }
 
-
-
-
-
-
-
 /// Menu items start here
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -131,44 +122,28 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
             } else {
                 Toast.makeText(this, "Log out failed", Toast.LENGTH_SHORT).show();
             }
-
-
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         if (menuItem.getItemId() == R.id.navMap) {
-
             Intent mapIntent = new Intent(LibraryActivity.this, MapsActivity.class);
-
             startActivity(mapIntent);
-
             return true;
-
 
         } else if (menuItem.getItemId() == R.id.navLibrary) {
-
             Intent libraryIntent = new Intent(LibraryActivity.this, LibraryActivity.class);
-
             startActivity(libraryIntent);
-
             return true;
-
 
         } else if (menuItem.getItemId() == R.id.navProfile) {
-
             Intent profileIntent = new Intent(LibraryActivity.this, ProfileActivity.class);
-
             startActivity(profileIntent);
-
             return true;
-
         }
-
         return false;
     }
 }
