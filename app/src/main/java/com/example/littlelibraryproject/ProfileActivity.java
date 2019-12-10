@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -32,12 +33,14 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.StorageReference;
 
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private Context mContext; //context variable, for use later on
     private StorageReference mStorageRef; //storage to link to firebase, need to import mstorage
     private ValueEventListener userListener;
+
+    private BottomNavigationView mProfileNav;
 
 
     TextView textViewPhotoSubmissions, textViewFaveorites, textViewFirstfaveaddress,
@@ -70,6 +73,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewFavegenres = findViewById(R.id.textViewFavegenres);
         textViewusername = findViewById(R.id.textViewusername);
 
+        mProfileNav = findViewById(R.id.profile_nav);
+
+        mProfileNav.setOnNavigationItemSelectedListener(this);
+        mProfileNav.getMenu().findItem(R.id.navProfile).setChecked(true);
 
         buttonEditProfile.setOnClickListener(this);
         //buttonShowprofile.setOnClickListener(this);
@@ -222,6 +229,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        if (menuItem.getItemId() == R.id.navMap) {
+            Intent mapIntent = new Intent(ProfileActivity.this, MapsActivity.class);
+            startActivity(mapIntent);
+            return true;
+
+        } else if (menuItem.getItemId() == R.id.navLibrary) {
+            Intent libraryIntent = new Intent(ProfileActivity.this, LibraryActivity.class);
+            startActivity(libraryIntent);
+            return true;
+
+        } else if (menuItem.getItemId() == R.id.navProfile) {
+            Intent profileIntent = new Intent(ProfileActivity.this, ProfileActivity.class);
+            startActivity(profileIntent);
+            return true;
+        }
+
+        return false;
+    }
 }
 
     //Code from Paul's example amended. How can this work for photo submissions, profile images and images of the library?

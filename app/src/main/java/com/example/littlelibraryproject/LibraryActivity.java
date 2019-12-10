@@ -30,6 +30,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
     private BottomNavigationView mLibraryNav;
 
 
+
     ///onCreate starts here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
