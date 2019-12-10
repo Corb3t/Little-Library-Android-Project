@@ -1,24 +1,31 @@
 package com.example.littlelibraryproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.mbms.StreamingServiceInfo;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText editTextName, editTextGenre;
+    EditText editTextName, editTextGenre, editTextFavLibrary;
     Button buttonSubmit, buttonUploadProfilePhoto;
 
 
@@ -31,6 +38,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         editTextName = findViewById(R.id.editTextName);
         editTextGenre = findViewById(R.id.editTextGenre);
+        editTextFavLibrary = findViewById(R.id.editTextFavLibrary);
         buttonSubmit = findViewById(R.id.buttonSubmit);
         buttonUploadProfilePhoto = findViewById(R.id.buttonUploadProfilePhoto);
 
@@ -82,22 +90,61 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
 
+        FirebaseUser user = mAuth.getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Users");
+        final DatabaseReference myRef = database.getReference("Users");
 
         if (view == buttonSubmit){
 
-            String createName = editTextName.getText().toString();
-            String createGenre = editTextGenre.getText().toString();
+            final String editUserName = user.getEmail();
+
+            myRef.orderByChild("username").equalTo(editUserName).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    String editKey = dataSnapshot.getKey();
+                    User foundUser = dataSnapshot.getValue(User.class);
+
+                    final String editName = editTextName.getText().toString();
+                    final String editGenre = editTextGenre.getText().toString();
+                    final String editFavLibrary = editTextFavLibrary.getText().toString();
+
+                    User editUser = new User(editUserName, editName, editGenre, editFavLibrary);
+                    myRef.child(editKey).setValue(editUser);
+
+                    Toast.makeText(EditProfileActivity.this, "Profile Updated!", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
         }
 
         else if (view == buttonUploadProfilePhoto){
 
-            // Implement photo upload functionality
+            Intent photoIntent = new Intent(this, AddPhoto2activity.class);
+            startActivity(photoIntent);
+
         }
 
     }
 }
-
-
-

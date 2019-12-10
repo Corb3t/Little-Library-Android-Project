@@ -59,6 +59,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (view == buttonRegisterStartPrompt) {
 
+            if (email.isEmpty() || email == null) {
+                editTextRegisterEnterEmail.setError("Email cannot be empty");
+                return;
+            }
+
+            if (password.isEmpty() || password == null) {
+                editTextRegisterEnterPassword.setError("Password cannot be empty");
+                return;
+            }
+
             if (!(password.equals(editTextRegisterReenterPassword.getText().toString()))) {
 
                 Toast.makeText(this, "Your entered password is inconsistent", Toast.LENGTH_SHORT).show();
@@ -68,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    User NewUser = new User(email, "John Doe", "Horror", "Library1", "None");
+                                    User NewUser = new User(email, "John Doe", "Horror", "Library1");
                                     myRef.push().setValue(NewUser);
 
                                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);

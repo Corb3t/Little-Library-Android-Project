@@ -8,53 +8,110 @@
 
     <Button
         android:id="@+id/buttonNavigateToLibrary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="128dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="19dp"
         android:text="Get me there!"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryAddress" />
 
     <TextView
         android:id="@+id/textViewLibraryGenres"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
+        android:layout_width="217dp"
+        android:layout_height="25dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="376dp"
-        android:text="Book genres go here"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="154dp"
+        android:text="Horror, children's..."
+        android:textColor="#161414"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLibraryPhoto" />
 
     <ImageView
         android:id="@+id/imageViewLibraryPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonAddLibraryPhoto"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[3]" />
+        android:layout_width="132dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/lfl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNavigateToLibrary" />
+
+
+    <ImageView
+        android:id="@+id/imageViewOwner"
+        android:layout_width="132dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="143dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/owner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryGenres"
+        app:layout_constraintVertical_bias="0.622" />
+
+    <TextView
+        android:id="@+id/textViewLibraryDescription"
+        android:layout_width="183dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:text="Hi, this is my little free library! I'm happy you came to visit and I'm looking forward to collaborating with you on building our community!"
+        android:textColor="#161414"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddLibraryPhoto"
+        app:layout_constraintVertical_bias="0.537" />
 
     <Button
         android:id="@+id/buttonAddLibraryPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="244dp"
-        android:text="Add Photo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="137dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="32dp"
+        android:text="Take a Photo of the Library"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLibraryPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryAddress" />
 
     <TextView
         android:id="@+id/textViewLibraryAddress"
-        android:layout_width="216dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="29dp"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         android:text="Address goes here"
+        android:textColor="#161414"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonTakePhoto"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:text="Upload from file manager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLibraryPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddLibraryPhoto" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/library_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

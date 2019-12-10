@@ -1,5 +1,5 @@
 package com.example.littlelibraryproject;
-
+//test
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +56,8 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 // Get a non-default bucket from a custom FirebaseApp
         final FirebaseStorage storage;
         storage = FirebaseStorage.getInstance ( "gs://littlelibraryproject-dbdcb.appspot.com/" );
+
+
 
         //button click upload
 
@@ -115,7 +117,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
             @Override
             public void onClick(View v) {
-                //if system ps os >=marshmallow,request runtime permission
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (checkSelfPermission ( Manifest.permission.CAMERA ) ==
                             PackageManager.PERMISSION_DENIED ||
@@ -201,16 +202,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
 
 
-    //open album
-    private void openSysAlbum() {
-        Intent albumIntent = new Intent ( Intent.ACTION_PICK );
-        albumIntent.setDataAndType ( MediaStore.Images.Media.EXTERNAL_CONTENT_URI , "image/*" );
-        startActivityForResult ( albumIntent , ALBUM_RESULT_CODE );
-
-
-
-    }
-
 
 
     @Override
@@ -240,3 +231,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 }
+
+                //if system ps os >=marshmallow,request runtime permission
+

@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
+    <ImageView
+        android:id="@+id/imageViewEditProfileBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.3"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/login_background"
+        tools:layout_editor_absoluteY="90dp" />
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="wrap_content"
@@ -15,8 +25,8 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="50dp"
         android:ems="10"
+        android:hint="Enter Name Here:"
         android:inputType="textPersonName"
-        android:text="Enter Your Name"
         app:layout_constraintBottom_toTopOf="@+id/editTextGenre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +41,8 @@
         android:layout_marginEnd="51dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
+        android:hint="Enter Favorite Book Genre Here:"
         android:inputType="textPersonName"
-        android:text="Enter Your Favorite Book Genre"
         app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,4 +76,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGenre" />
+
+    <EditText
+        android:id="@+id/editTextFavLibrary"
+        android:layout_width="326dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:hint="Enter Favorite Little Library Here:"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextGenre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

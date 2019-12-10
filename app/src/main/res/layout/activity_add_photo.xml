@@ -14,18 +14,12 @@
     tools:context=".AddLibraryActivity">
 
 
-        <TextView
-            android:id="@+id/AddPhoto"
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:drawableLeft="@mipmap/ic_launcher_round"
 
-            android:gravity=""
-            android:lines="10"
-            android:padding="5dp"
-            android:text="Add Photo"
-            android:textColor="#767676" />
+
+
+
+
+
 
         <EditText
             android:id="@+id/editTextM"
