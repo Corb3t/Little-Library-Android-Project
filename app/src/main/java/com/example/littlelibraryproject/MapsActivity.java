@@ -3,6 +3,7 @@ package com.example.littlelibraryproject;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,11 +34,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap mMap;
     private ArrayList<Library> mLibraryLocations = new ArrayList<>();
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
+    private BottomNavigationView mMapsNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mMapsNav = findViewById(R.id.profile_nav);
+
+        mMapsNav.setOnNavigationItemSelectedListener(this);
+        mMapsNav.getMenu().findItem(R.id.navMap).setChecked(true);
     }
 
 
@@ -189,5 +197,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         return Libraries;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        if (menuItem.getItemId() == R.id.navMap) {
+            Intent mapIntent = new Intent(MapsActivity.this, MapsActivity.class);
+            startActivity(mapIntent);
+            return true;
+
+        } else if (menuItem.getItemId() == R.id.navLibrary) {
+            Intent libraryIntent = new Intent(MapsActivity.this, LibraryActivity.class);
+            startActivity(libraryIntent);
+            return true;
+
+        } else if (menuItem.getItemId() == R.id.navProfile) {
+            Intent profileIntent = new Intent(MapsActivity.this, ProfileActivity.class);
+            startActivity(profileIntent);
+            return true;
+        }
+
+        return false;
     }
 }

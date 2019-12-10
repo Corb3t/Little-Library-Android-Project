@@ -21,13 +21,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LibraryActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private Button button;
+
     Button buttonAddLibraryPhoto, buttonNavigateToLibrary, buttonTakePhoto;
     TextView textViewLibraryGenres, textViewLibraryAddress;
     ImageView imageViewLibraryPhoto;
     private FirebaseAuth mAuth;
 
     private BottomNavigationView mLibraryNav;
+
 
 
     ///onCreate starts here
@@ -53,7 +54,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         String name = getIntent().getStringExtra("Title");                                      //Paul help
         textViewLibraryAddress.setText(name);
 
-        mAuth = FirebaseAuth.getInstance ();
+        mAuth = FirebaseAuth.getInstance();
 
         buttonTakePhoto.setOnClickListener ( new View.OnClickListener () {
             @Override
@@ -72,8 +73,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
     }
 
     public void openTakePhoto() {
-        Intent intent2 = new Intent ( this,AddPhoto3Activity.class );
-        startActivity ( intent2 );
+        Intent intent2 = new Intent (this,AddPhoto3Activity.class );
+        startActivity (intent2);
     }
 
     public void openAddLibraryPhoto() {
@@ -112,16 +113,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         else if (item.getItemId() == R.id.itemLogOut){
 
             FirebaseAuth.getInstance().signOut();
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user == null) {
-                Toast.makeText(this, "You have been logged out", Toast.LENGTH_LONG).show();
-
-                Intent LoginIntent = new Intent(this, LoginActivity.class);
-                startActivity(LoginIntent);
-            } else {
-                Toast.makeText(this, "Log out failed", Toast.LENGTH_SHORT).show();
-            }
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
         }
         return super.onOptionsItemSelected(item);
     }
