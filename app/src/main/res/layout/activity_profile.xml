@@ -6,33 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <FrameLayout
-        android:id="@+id/profile_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/profile_nav"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/profile_nav">
 
-    </FrameLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/buttonEditProfile"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="158dp"-->
-<!--        android:layout_marginTop="400dp"-->
-<!--        android:layout_marginEnd="165dp"-->
-<!--        android:text="Edit Your Profile"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/profile_nav"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textViewPhotoSubmissions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Your Photo Submissions"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />
+        tools:layout_editor_absoluteY="501dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
+        android:text="Your Favorite Libraries"
+        android:textColor="#111010"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfilephoto" />
+
+    <TextView
+        android:id="@+id/textViewusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="34dp"
+        android:hint="Your Name"
+        android:textAlignment="textEnd"
+        android:textColor="#1D1C1C"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFavegenres"
+        android:layout_width="144dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="34dp"
+        android:hint="Your Favorite Genres"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewusername" />
+
+    <TextView
+        android:id="@+id/textViewFirstfave"
+        android:layout_width="140dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="34dp"
+        android:hint="Faveorite #1"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewlibuno"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFavegenres" />
+
+    <TextView
+        android:id="@+id/textViewFirstfaveaddress"
+        android:layout_width="140dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="34dp"
+        android:hint="Address for Fave #1"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewlibuno"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFirstfave" />
+
+    <TextView
+        android:id="@+id/textViewSecondfave"
+        android:layout_width="140dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="38dp"
+        android:hint="Faveorite #2"
+        android:textAlignment="textEnd"
+        android:textColor="#111010"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFirstfaveaddress" />
+
+    <TextView
+        android:id="@+id/textViewSecondfaveaddress"
+        android:layout_width="140dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="38dp"
+        android:hint="Address Fave #2"
+        android:textAlignment="textEnd"
+        android:textColor="#111010"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSecondfave" />
+
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="54dp"
+        android:text="Edit Your Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewProfilephoto"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/blankuser" />
+
+    <ImageView
+        android:id="@+id/imageViewlibuno"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@mipmap/mh" />
+
+    <ImageView
+        android:id="@+id/imageViewSecondfave"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlibuno"
+        app:srcCompat="@mipmap/mhs" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

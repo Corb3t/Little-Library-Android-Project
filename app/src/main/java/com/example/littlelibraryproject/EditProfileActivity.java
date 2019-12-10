@@ -141,7 +141,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         else if (view == buttonUploadProfilePhoto){
 
-            // Implement photo upload functionality
+            Intent photoIntent = new Intent(this, AddPhoto2activity.class);
+            startActivity(photoIntent);
+
         }
 
     }

@@ -1,5 +1,5 @@
 package com.example.littlelibraryproject;
-
+//test
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +36,7 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
     private static final int PERMISSION_CODE = 1000;
     Button buttonCamera, buttonUpload;
-    ImageView mImageView;
+        ImageView mImageView;
 
     Uri image_uri;
     private int IMAGE_CAPTURE_CODE = 1001;
@@ -154,7 +154,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
             }
         } );
-
 
     }
 
