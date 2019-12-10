@@ -153,7 +153,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
             startActivity(editProfileIntent);
             //} else if (view == buttonShowprofile) { //for some reason if I don't type View view, my 'view' remains red.
-            reff = FirebaseDatabase.getInstance().getReference().child("User").child("1");
+
+        }/* reff = FirebaseDatabase.getInstance().getReference().child("User").child("1");
 
             reff.addValueEventListener(new ValueEventListener() {
 
@@ -180,7 +181,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             });
 
 
-        }
+        } */
     }
 
     //Menu
