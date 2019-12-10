@@ -153,6 +153,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(editProfileIntent);
             //} else if (view == buttonShowprofile) { //for some reason if I don't type View view, my 'view' remains red.
             reff = FirebaseDatabase.getInstance().getReference().child("User").child("1");
+
             reff.addValueEventListener(new ValueEventListener() {
 
                 //when we click "button show profile" we ned to display all of the current information on the profile
