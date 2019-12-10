@@ -65,7 +65,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewSecondfaveaddress = findViewById(R.id.textViewSecondfaveaddress);
         imageViewSecondfave = findViewById(R.id.imageViewSecondfave);
         //imageViewFavetwo = findViewById(R.id.imageViewFavetwo);
-        imageViewHomePhotoone = findViewById(R.id.imageViewHomePhotoone);
+//        imageViewHomePhotoone = findViewById(R.id.imageViewHomePhotoone);
         //imageViewPhototwo = findViewById(R.id.imageViewPhototwo);
         textViewFavegenres = findViewById(R.id.textViewFavegenres);
         textViewusername = findViewById(R.id.textViewusername);

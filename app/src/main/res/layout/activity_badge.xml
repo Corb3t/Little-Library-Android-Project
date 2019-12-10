@@ -14,7 +14,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="201dp"
-        android:src="@drawable/user"
+        android:src="@drawable/blankuser"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewBadge"
