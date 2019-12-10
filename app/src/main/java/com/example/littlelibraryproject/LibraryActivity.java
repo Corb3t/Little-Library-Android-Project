@@ -28,6 +28,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
     private FirebaseAuth mAuth;
 
     private BottomNavigationView mLibraryNav;
+    
 
 
     ///onCreate starts here
