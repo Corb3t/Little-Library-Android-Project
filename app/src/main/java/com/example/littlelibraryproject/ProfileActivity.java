@@ -252,6 +252,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 }
 
+
+
+
     //Code from Paul's example amended. How can this work for photo submissions, profile images and images of the library?
     //Display profile image
 /*    @Override
