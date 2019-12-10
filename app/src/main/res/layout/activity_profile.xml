@@ -2,54 +2,188 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textViewFaveorites"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    tools:layout_editor_absoluteX="41dp"
+    tools:layout_editor_absoluteY="250dp">
 
-    <TextView
-        android:id="@+id/textViewLikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:hint="Likes"
-        android:text="Likes"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewProfilephoto"
+        android:layout_width="151dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFavegenres"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="176dp" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:srcCompat="@drawable/user" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewHomePhotoone"
+        android:layout_width="100dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSecondfaveaddress"
+        tools:srcCompat="@drawable/photo_submitted" />
 
     <TextView
-        android:id="@+id/textViewFaveorites"
+        android:id="@+id/textViewPhotoSubmissions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="158dp"
-        android:text="Faveorites"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="51dp" />
-
-    <TextView
-        android:id="@+id/textViewBadges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="308dp"
-        android:text="Badges"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="55dp" />
-
-    <TextView
-        android:id="@+id/textViewPhotos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:text="Photo Submissions"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="53dp" />
-
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="26dp"
-        android:text="Name"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="16dp"
+        android:text="Your Photo Submissions"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewHomePhotoone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSecondfave" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="241dp"
+        android:layout_marginBottom="568dp"
+        android:text="Your Faveorite Libraries"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="33dp"
+        android:hint="Your Name"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFavegenres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewProfilephoto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFavegenres"
+        android:layout_width="144dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="7dp"
+        android:hint="Your Faveorite Genres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <TextView
+        android:id="@+id/textViewFirstfave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="32dp"
+        android:hint="Faveorite #1"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFirstfaveaddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewlibuno"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFavegenres"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewFirstfaveaddress"
+        android:layout_width="84dp"
+        android:layout_height="33dp"
+        android:hint="Address for Fave #1"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="258dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewlibuno"
+        android:layout_width="151dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="176dp" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/library_fave" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewSecondfave"
+        android:layout_width="122dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlibuno"
+        tools:srcCompat="@drawable/photo_submission" />
+
+    <TextView
+        android:id="@+id/textViewSecondfave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="19dp"
+        android:hint="Faveorite #2"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSecondfaveaddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFirstfaveaddress" />
+
+    <TextView
+        android:id="@+id/textViewSecondfaveaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="282dp"
+        android:hint="Address Fave #2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSecondfave" />
+
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="515dp"
+        android:layout_marginEnd="165dp"
+        android:layout_marginBottom="98dp"
+        android:text="Edit Your Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

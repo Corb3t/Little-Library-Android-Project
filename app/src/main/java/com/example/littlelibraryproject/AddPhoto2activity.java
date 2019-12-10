@@ -36,14 +36,13 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
 
     private static final int PERMISSION_CODE = 1000;
     Button buttonCamera, buttonUpload;
-    ImageView mImageView;
+        ImageView mImageView;
 
     Uri image_uri;
     private int IMAGE_CAPTURE_CODE = 1001;
     private int ALBUM_RESULT_CODE = 1002;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance ();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +144,6 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
             }
         } );
 
-
     }
 
     private void openCamera() {
@@ -226,7 +224,7 @@ public class AddPhoto2activity<mPhotoFile, storageDir> extends AppCompatActivity
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);

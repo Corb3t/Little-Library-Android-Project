@@ -1,5 +1,10 @@
 package com.example.littlelibraryproject;
 
+//<<<<<<< HEAD
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+//=======
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+//>>>>>>> origin/master
 
 public class BadgeFirstCommentActivity extends AppCompatActivity {
 
@@ -16,6 +22,8 @@ public class BadgeFirstCommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badge_first_comment);
     }
+//<<<<<<< HEAD
+//=======
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,7 +45,7 @@ public class BadgeFirstCommentActivity extends AppCompatActivity {
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
@@ -52,4 +60,5 @@ public class BadgeFirstCommentActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+//>>>>>>> origin/master
 }

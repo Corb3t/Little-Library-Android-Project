@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageViewBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.3"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/login_background"
+        tools:layout_editor_absoluteY="90dp" />
+
     <TextView
         android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
@@ -13,10 +23,13 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="10dp"
+        android:fontFamily="cursive"
         android:text="Welcome to Little Library"
+
+        android:textColor="#4CAF50"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextLoginEmail"
+        android:textStyle="bold"
+        app:drawableTint="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,9 +38,9 @@
         android:id="@+id/buttonLoginLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="178dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="146dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="162dp"
         android:text="Log In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +50,10 @@
         android:id="@+id/buttonLoginRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginBottom="77dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="133dp"
         android:text="Create Account"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLoginLogin" />
@@ -51,14 +62,12 @@
         android:id="@+id/editTextLoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
+        android:layout_marginStart="99dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="99dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/editTextLoginPassword"
+        android:hint="Enter Email Here"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
@@ -67,15 +76,12 @@
         android:id="@+id/editTextLoginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLoginLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Enter Password Here"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextLoginEmail"
         app:layout_constraintTop_toBottomOf="@+id/editTextLoginEmail" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,31 +10,54 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LibraryActivity extends AppCompatActivity {
 
     private Button button;
+    Button buttonAddLibraryPhoto, buttonNavigateToLibrary;
+    TextView textViewLibraryGenres, textViewLibraryAddress;
+    ImageView imageViewLibraryPhoto;
+    private FirebaseAuth mAuth;
 
+
+///onCreate starts here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        button = (Button) findViewById(R.id.buttonRegisterStartPrompt);
-        button.setOnClickListener(new View.OnClickListener(){
+        buttonAddLibraryPhoto = findViewById(R.id.buttonAddLibrary);
+        buttonNavigateToLibrary = findViewById(R.id.buttonNavigateToLibrary);
+
+        textViewLibraryAddress = findViewById(R.id.textViewLibraryAddress);
+        textViewLibraryGenres = findViewById(R.id.textViewLibraryGenres);
+
+        imageViewLibraryPhoto = findViewById(R.id.imageViewLibraryPhoto);
+
+
+        buttonAddLibraryPhoto.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 openAddPhotoActivity();
             }
         });
+
+//comment?
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
-
+///Not sure what this is or who put it there?
     public void openAddPhotoActivity() {
         Intent intent = new Intent(this, AddPhoto2activity.class);
         startActivity(intent);
     }
-
+/// Menu items start here
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -55,7 +78,7 @@ public class LibraryActivity extends AppCompatActivity {
             Intent MapIntent = new Intent(this, MapsActivity.class);
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
-            Intent UsersIntent = new Intent(this, ProfileCreationActivity.class);
+            Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
@@ -66,7 +89,10 @@ public class LibraryActivity extends AppCompatActivity {
         }
         else if (item.getItemId() == R.id.itemLogOut){
 
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
+
         }
         return super.onOptionsItemSelected(item);
     }
