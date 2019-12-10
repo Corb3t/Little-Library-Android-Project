@@ -33,7 +33,7 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.StorageReference;
 
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener/*, BottomNavigationView.OnNavigationItemSelectedListener */{
 
     private FirebaseAuth mAuth;
     private Context mContext; //context variable, for use later on
@@ -52,9 +52,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile); }
 //get references to widgets
-
+/*
         mAuth = FirebaseAuth.getInstance();
 
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
@@ -155,7 +155,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //Button to Edit Profile when clicked
     @Override
     public void onClick(View view) {
-
+/*
         if (view == buttonEditProfile) {
             Intent editProfileIntent = new Intent(this, EditProfileActivity.class);
             startActivity(editProfileIntent);
@@ -227,7 +227,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(mainIntent);
         }
         return super.onOptionsItemSelected(item);
-    }
+    }}
+/*    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -253,7 +254,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 }
 
 
-
+*/
 
     //Code from Paul's example amended. How can this work for photo submissions, profile images and images of the library?
     //Display profile image
