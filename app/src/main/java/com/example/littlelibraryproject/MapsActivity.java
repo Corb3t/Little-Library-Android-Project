@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -85,7 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 //hash map data output
-//                Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
                 System.out.println(Libraries);
 
             }
@@ -96,11 +97,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        //pull little library info from database
-//        myRef.orderByChild(""); add child event listener
-
         //display closest little libraries in maps
-
         // Add a marker in Ann Arbor and move the camera
         LatLng annarbor = new LatLng(42.30456, -83.7333699);
         LatLng annarbor2 = new LatLng(42.2794, -83.76651);
@@ -123,7 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(annarbor, zoomLevel));
 
 
-//Navigate from the infowindow to the library page... gotta figure out how to populate the library page
+        //Navigate from the infowindow to the library page
         googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
@@ -145,6 +142,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return super.onCreateOptionsMenu(menu);
     }
 
+    //menu bar stuff
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -166,8 +164,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             startActivity(AddLibraryIntent);
         }
         else if (item.getItemId() == R.id.itemLogOut){
-
-            /// Implement log out funcitonality here
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -177,6 +176,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    //Hashmap stuff for getting library firebase data
     public HashMap<String, Library> getLibrary(DatabaseReference ref){
         final HashMap<String, Library> Libraries = new HashMap<>();
 
@@ -199,6 +199,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return Libraries;
     }
 
+    //bottom bar navigation
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
