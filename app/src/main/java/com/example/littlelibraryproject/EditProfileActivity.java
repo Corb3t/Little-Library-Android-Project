@@ -113,6 +113,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                     myRef.child(editKey).setValue(editUser);
 
                     Toast.makeText(EditProfileActivity.this, "Profile Updated!", Toast.LENGTH_SHORT).show();
+
+
+
+
                 }
 
                 @Override
