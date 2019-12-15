@@ -23,7 +23,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
 
     Button buttonAddLibraryPhoto, buttonNavigateToLibrary, buttonTakePhoto;
-    TextView textViewLibraryGenres, textViewLibraryAddress;
+    TextView textViewLibraryGenres, textViewLibraryAddress, welcomeMessage;
     ImageView imageViewLibraryPhoto;
     private FirebaseAuth mAuth;
 
@@ -45,13 +45,17 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         textViewLibraryGenres = findViewById ( R.id.textViewLibraryGenres );
 
         imageViewLibraryPhoto = findViewById ( R.id.imageViewLibraryPhoto );
+        welcomeMessage = findViewById(R.id.textViewLibraryDescription);
 
         mLibraryNav = findViewById(R.id.library_nav);
 
         mLibraryNav.setOnNavigationItemSelectedListener(this);
         mLibraryNav.getMenu().findItem(R.id.navLibrary).setChecked(true);
 
-        String name = getIntent().getStringExtra("Title");                                      //Paul help
+        String name = getIntent().getStringExtra("Name");//Paul help
+        String welcome = getIntent().getStringExtra("WelcomeMessage");
+
+        welcomeMessage.setText(welcome);
         textViewLibraryAddress.setText(name);
 
         mAuth = FirebaseAuth.getInstance();

@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.Tag;
 
+import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,9 +40,8 @@ import java.util.Map;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap mMap;
-    private ArrayList<Library> mLibraryLocations = new ArrayList<>();
-    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     private BottomNavigationView mMapsNav;
+    private Map<String, Library> Libraries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,52 +72,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         //get all Firebase data using a Hashmap
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Libraries");
-
-        final Map<String, Library> Libraries = new HashMap<String, Library>();
-
-        myRef.addValueEventListener(new ValueEventListener() {
+        getLibrary(new MyCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Library l = postSnapshot.getValue(Library.class);
-                    Libraries.put(l.libraryName, l);
-                }
-
-                //hash map data output
-                Toast.makeText(MapsActivity.this, Libraries.toString(), Toast.LENGTH_SHORT).show();
-                System.out.println(Libraries);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onCallBack(Map<String, Library> value) {
+                Libraries = value;
+                loadData(Libraries, mMap);
             }
         });
-
-        //display closest little libraries in maps
-        // Add a marker in Ann Arbor and move the camera
-        LatLng annarbor = new LatLng(42.30456, -83.7333699);
-        LatLng annarbor2 = new LatLng(42.2794, -83.76651);
-        LatLng annarbor3 = new LatLng(42.28024, -83.7563799);
-        LatLng annarbor4 = new LatLng(42.2779682, -83.7591485);
-        LatLng annarbor5 = new LatLng(42.27176, -83.7360999);
-        LatLng annarbor6 = new LatLng(42.27521, -83.73191);
-        LatLng annarbor7 = new LatLng(42.27497, -83.71884);
-        mMap.addMarker(new MarkerOptions().position(annarbor).title("Brookside Book House").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor2).title("Library #15019").snippet("Address: 865 Brookside Dr\n" +
-                "Ann Arbor, MI 48105\n" + "Genres: Crime, Fantasy, Fiction").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor3).title("Library #428024").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor4).title("Library #18656").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor5).title("The Smith's Library").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor6).title("Vertex Coffee Roasters").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.addMarker(new MarkerOptions().position(annarbor7).title("Library #58910").snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
-        mMap.setMyLocationEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(annarbor));
-        float zoomLevel = 13.0f; //This goes up to 21
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(annarbor, zoomLevel));
 
 
         //Navigate from the infowindow to the library page
@@ -126,7 +87,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onInfoWindowClick(Marker marker) {
                 String name = marker.getTitle();
                 Intent I = new Intent(MapsActivity.this, LibraryActivity.class);
-                I.putExtra("Title", name);
+                I.putExtra("WelcomeMessage", Libraries.get(name).welcomeMessage);
+                I.putExtra("Name", name);
                 startActivity(I);
             }
         });
@@ -177,17 +139,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     //Hashmap stuff for getting library firebase data
-    public HashMap<String, Library> getLibrary(DatabaseReference ref){
+    public void getLibrary(final MyCallback callback){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Libraries");
         final HashMap<String, Library> Libraries = new HashMap<>();
 
-        ref.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     Library l = postSnapshot.getValue(Library.class);
                     Libraries.put(l.libraryName, l);
-                    Log.w("MapsActivity", Libraries.toString());
                 }
+                callback.onCallBack(Libraries);
             }
 
             @Override
@@ -195,8 +159,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
-
-        return Libraries;
     }
 
     //bottom bar navigation
@@ -220,5 +182,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         return false;
+    }
+
+    //loading up hashmap library info in the map
+    public void loadData(Map<String, Library> Libraries, GoogleMap mMap){
+        for(Map.Entry element: Libraries.entrySet()){
+            Library l = (Library) element.getValue();
+            LatLng annarbor = new LatLng(l.latitude, l.longitude);
+            mMap.addMarker(new MarkerOptions().position(annarbor).title(l.libraryName).snippet("Address: 1234 Main St").icon(BitmapDescriptorFactory.fromResource(R.drawable.libraryicon)));
+
+        }
+        mMap.setMyLocationEnabled(true);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(42.28024, -83.7563799)));
+        float zoomLevel = 13.0f; //This goes up to 21
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(42.28024, -83.7563799), zoomLevel));
     }
 }
