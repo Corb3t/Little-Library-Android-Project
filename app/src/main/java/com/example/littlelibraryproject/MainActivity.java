@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity{
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(loginIntent);
+
 
     }
 
