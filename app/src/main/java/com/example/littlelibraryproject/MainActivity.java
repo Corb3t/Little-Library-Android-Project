@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity{
             startActivity(MapIntent);
         } else if (item.getItemId() == R.id.itemUsers) {
             Intent UsersIntent = new Intent(this, ProfileActivity.class);
+
             startActivity(UsersIntent);
         } else if (item.getItemId() == R.id.itemLibrary) {
             Intent LibraryIntent = new Intent(this, LibraryActivity.class);
