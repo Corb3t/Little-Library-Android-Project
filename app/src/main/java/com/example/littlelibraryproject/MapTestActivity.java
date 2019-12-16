@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -158,9 +159,6 @@ public class MapTestActivity extends FragmentActivity implements OnMapReadyCallb
         } else if (item.getItemId() == R.id.itemUsers) {
             Intent UsersIntent = new Intent(this, EditProfileActivity.class);
             startActivity(UsersIntent);
-        } else if (item.getItemId() == R.id.itemLibrary) {
-            Intent LibraryIntent = new Intent(this, LibraryActivity.class);
-            startActivity(LibraryIntent);
         } else if (item.getItemId() == R.id.itemAddLibrary) {
             Intent AddLibraryIntent = new Intent(this, AddLibraryActivity.class);
             startActivity(AddLibraryIntent);
@@ -168,6 +166,10 @@ public class MapTestActivity extends FragmentActivity implements OnMapReadyCallb
         else if (item.getItemId() == R.id.itemLogOut){
 
             /// Implement log out funcitonality here
+
+            FirebaseAuth.getInstance().signOut();
+            Intent mainIntent = new Intent(this, LoginActivity.class);
+            startActivity(mainIntent);
         }
         return super.onOptionsItemSelected(item);
     }

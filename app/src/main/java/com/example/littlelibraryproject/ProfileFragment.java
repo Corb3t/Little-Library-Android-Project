@@ -93,9 +93,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         } else if (item.getItemId() == R.id.itemUsers) {
             Intent UsersIntent = new Intent(getActivity(), ProfileActivity.class);
             startActivity(UsersIntent);
-        } else if (item.getItemId() == R.id.itemLibrary) {
-            Intent LibraryIntent = new Intent(getActivity(), LibraryActivity.class);
-            startActivity(LibraryIntent);
         } else if (item.getItemId() == R.id.itemAddLibrary) {
             Intent AddLibraryIntent = new Intent(getActivity(), AddLibraryActivity.class);
             startActivity(AddLibraryIntent);

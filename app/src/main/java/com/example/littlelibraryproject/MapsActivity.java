@@ -122,9 +122,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else if (item.getItemId() == R.id.itemUsers) {
             Intent UsersIntent = new Intent(this, EditProfileActivity.class);
             startActivity(UsersIntent);
-        } else if (item.getItemId() == R.id.itemLibrary) {
-            Intent LibraryIntent = new Intent(this, LibraryActivity.class);
-            startActivity(LibraryIntent);
         } else if (item.getItemId() == R.id.itemAddLibrary) {
             Intent AddLibraryIntent = new Intent(this, AddLibraryActivity.class);
             startActivity(AddLibraryIntent);

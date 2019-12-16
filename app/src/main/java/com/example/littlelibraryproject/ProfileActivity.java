@@ -209,9 +209,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         } else if (item.getItemId() == R.id.itemUsers) {
             Intent UsersIntent = new Intent(this, ProfileActivity.class);
             startActivity(UsersIntent);
- /*       } else if (item.getItemId() == R.id.itemLibrary) {
-            Intent LibraryIntent = new Intent(this, LibraryActivity.class);
-            startActivity(LibraryIntent);*/ // doesn't make sense to keep navigation to libraries outside of the map
         } else if (item.getItemId() == R.id.itemAddLibrary) {
             Intent AddLibraryIntent = new Intent(this, AddLibraryActivity.class);
             startActivity(AddLibraryIntent);
@@ -260,13 +257,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
-
-
-//deleted text views imageViewFavetwo, imageViewHomePhotoone, imageViewPhototwo,
-//imageViewFavetwo = findViewById(R.id.imageViewFavetwo);
-//imageViewHomePhotoone = findViewById(R.id.imageViewHomePhotoone);
-//imageViewPhototwo = findViewById(R.id.imageViewPhototwo);
-//textViewFaveorites = findViewById(R.id.textViewFaveorites);
 }
 
 
