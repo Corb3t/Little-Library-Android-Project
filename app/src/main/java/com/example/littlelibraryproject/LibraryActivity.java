@@ -155,8 +155,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
             return true;
 
         } else if (menuItem.getItemId() == R.id.navLibrary) {
-            Intent libraryIntent = new Intent(LibraryActivity.this, LibraryActivity.class);
-            startActivity(libraryIntent);
+            Toast.makeText(this, "Please go to Map and select a library first", Toast.LENGTH_SHORT).show();
             return true;
 
         } else if (menuItem.getItemId() == R.id.navProfile) {
