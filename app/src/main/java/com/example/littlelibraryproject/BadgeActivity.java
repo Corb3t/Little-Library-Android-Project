@@ -18,6 +18,9 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+// Future steps (outside of class scope)
+
 public class BadgeActivity extends AppCompatActivity {
 
     ImageView imageViewUserPhoto, imageViewBadge;

@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+// Future steps (outside of class scope)
+
 public class BadgeFirstPhotoActivity extends AppCompatActivity {
 
     @Override

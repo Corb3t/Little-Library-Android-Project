@@ -15,6 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 //>>>>>>> origin/master
 
+// Future steps (outside of class scope)
+
 public class BadgeFirstCommentActivity extends AppCompatActivity {
 
     @Override
