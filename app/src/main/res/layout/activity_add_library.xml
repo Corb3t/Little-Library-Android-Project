@@ -13,8 +13,8 @@
         android:alpha="0.3"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/login_background"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_background" />
 
     <TextView
         android:id="@+id/textViewAddLibraryNamePrompt"
@@ -91,6 +91,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryLong" />
 
+    <TextView
+        android:id="@+id/textViewAddLibraryWelcomePrompt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="46dp"
+        android:text="Please enter the welcome message for this library:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryLong" />
+
     <EditText
         android:id="@+id/editTextAddLibraryWelcome"
         android:layout_width="wrap_content"
@@ -111,6 +123,29 @@
         android:layout_marginEnd="144dp"
         android:text="Add a Library"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryBookGenres" />
+
+    <TextView
+        android:id="@+id/textViewAddLibraryBookGenres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Please enter the genre of books in the library"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewAddLibraryBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAddLibraryWelcome" />
+
+    <EditText
+        android:id="@+id/editTextAddLibraryBookGenres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Enter genres here"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@id/editTextAddLibraryWelcome"
+        app:layout_constraintTop_toBottomOf="@id/textViewAddLibraryBookGenres"
+        tools:layout_constraintTop_toBottomOf="@id/editTextAddLibraryWelcome" />
 </androidx.constraintlayout.widget.ConstraintLayout>

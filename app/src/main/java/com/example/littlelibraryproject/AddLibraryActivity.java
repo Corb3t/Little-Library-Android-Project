@@ -24,8 +24,10 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
 
     TextView textViewAddLibraryNamePrompt, textViewAddLibraryLatPrompt;
     TextView textViewAddLibraryLongPrompt, textViewLibraryWelcomePrompt;
+    TextView textViewAddLibraryBookGenres;
     EditText editTextAddLibraryName, editTextAddLibraryLat;
     EditText editTextAddLibraryLong, editTextAddLibraryWelcome;
+    EditText editTextAddLibraryBookGenres;
     Button buttonAddLibrary;
 
     private FirebaseAuth mAuth;
@@ -39,10 +41,12 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
         textViewAddLibraryLatPrompt = findViewById(R.id.textViewAddLibraryLatPrompt);
         textViewAddLibraryLongPrompt = findViewById(R.id.textViewAddLibraryLongPrompt);
         textViewLibraryWelcomePrompt = findViewById(R.id.textViewAddLibraryWelcomePrompt);
+        textViewAddLibraryBookGenres = findViewById(R.id.textViewAddLibraryBookGenres);
         editTextAddLibraryName = findViewById(R.id.editTextAddLibraryName);
         editTextAddLibraryLat = findViewById(R.id.editTextAddLibraryLat);
         editTextAddLibraryLong = findViewById(R.id.editTextAddLibraryLong);
         editTextAddLibraryWelcome = findViewById(R.id.editTextAddLibraryWelcome);
+        editTextAddLibraryBookGenres = findViewById(R.id.editTextAddLibraryBookGenres);
         buttonAddLibrary = findViewById(R.id.buttonAddLibrary);
         mAuth = FirebaseAuth.getInstance();
         buttonAddLibrary.setOnClickListener(this);
@@ -62,9 +66,10 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
                 Double createLibraryLat = parseDouble(editTextAddLibraryLat.getText().toString());
                 Double createLibraryLong = parseDouble(editTextAddLibraryLong.getText().toString());
                 String createLibraryWelcome = editTextAddLibraryWelcome.getText().toString();
+                String createLibraryGenres = editTextAddLibraryBookGenres.getText().toString();
 
                 Library createLibrary = new Library(createLibraryName, createLibraryLat, createLibraryLong,
-                        createLibraryWelcome);
+                        createLibraryWelcome, createLibraryGenres);
 
                 myRef.push().setValue(createLibrary);
 
@@ -73,6 +78,7 @@ public class AddLibraryActivity extends AppCompatActivity implements View.OnClic
                 editTextAddLibraryLat.setText("");
                 editTextAddLibraryLong.setText("");
                 editTextAddLibraryWelcome.setText("");
+                editTextAddLibraryBookGenres.setText("");
 
             } catch(Exception e) {
                 Toast.makeText(this, "Library failed to be added", Toast.LENGTH_SHORT).show();

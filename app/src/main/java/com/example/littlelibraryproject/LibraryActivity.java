@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +24,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
 
     Button buttonAddLibraryPhoto, buttonNavigateToLibrary, buttonTakePhoto;
-    TextView textViewLibraryGenres, textViewLibraryAddress, welcomeMessage;
+    TextView textViewLibraryGenres, textViewLibraryAddress, welcomeMessage, textViewLibraryLatitude,textViewLibraryLongitude;
     ImageView imageViewLibraryPhoto;
     private FirebaseAuth mAuth;
 
@@ -43,6 +44,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
         textViewLibraryAddress = findViewById ( R.id.textViewLibraryAddress );
         textViewLibraryGenres = findViewById ( R.id.textViewLibraryGenres );
+        textViewLibraryLatitude = findViewById(R.id.textViewLibraryLatitude);
+        textViewLibraryLongitude = findViewById(R.id.textViewLibraryLongitude);
 
         imageViewLibraryPhoto = findViewById ( R.id.imageViewLibraryPhoto );
         welcomeMessage = findViewById(R.id.textViewLibraryDescription);
@@ -54,9 +57,18 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
         String name = getIntent().getStringExtra("Name");//Paul help
         String welcome = getIntent().getStringExtra("WelcomeMessage");
+        String genres = getIntent().getStringExtra("BookGenres");
+        //String latitude = getIntent().getStringExtra("latitude");
+        //String longitude = getIntent().getStringExtra("longitude");
+
+
 
         welcomeMessage.setText(welcome);
         textViewLibraryAddress.setText(name);
+        textViewLibraryGenres.setText(genres);
+        //textViewLibraryLatitude.setText(latitude);
+        //=textViewLibraryLongitude.setText(longitude);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -64,6 +76,20 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
             @Override
             public void onClick(View v) {
                 openTakePhoto();
+            }
+        } );
+        buttonNavigateToLibrary.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                /*Uri navigationIntentUri = Uri.parse("google.navigation:q=" +  +"," + 2f);//creating intent with latlng
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);*/
+                Uri gmmIntentUri = Uri.parse("geo:latitude, longitude");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+
             }
         } );
 
@@ -85,6 +111,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         Intent intent1 = new Intent ( this , AddPhoto2activity.class );
         startActivity ( intent1 );
     }
+
+    public void openGet(){}; // wtfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 
 /// Menu items start here
     @Override

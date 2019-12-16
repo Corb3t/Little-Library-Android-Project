@@ -113,5 +113,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation" />
 
+    <TextView
+        android:id="@+id/textViewLibraryLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
+        android:text="Latitude"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/buttonNavigateToLibrary"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryAddress" />
+
+    <TextView
+        android:id="@+id/textViewLibraryLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="2dp"
+        android:text="Longitude"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/buttonNavigateToLibrary"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryLatitude" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

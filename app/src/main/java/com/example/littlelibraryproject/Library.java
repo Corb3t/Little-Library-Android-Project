@@ -13,10 +13,11 @@ public class Library {
 
 
     public Library(String libraryName, Double latitude, Double longitude,
-                String welcomeMessage) {
+                String welcomeMessage, String BookGenres) {
         this.libraryName = libraryName;
         this.latitude = latitude;
         this.longitude = longitude;
         this.welcomeMessage = welcomeMessage;
+        this.genres = BookGenres;
     }
 }
