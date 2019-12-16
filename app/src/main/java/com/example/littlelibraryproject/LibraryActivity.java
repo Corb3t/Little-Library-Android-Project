@@ -30,7 +30,6 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
     private BottomNavigationView mLibraryNav;
 
 
-
     ///onCreate starts here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         mLibraryNav.setOnNavigationItemSelectedListener(this);
         mLibraryNav.getMenu().findItem(R.id.navLibrary).setChecked(true);
 
-        String name = getIntent().getStringExtra("Name");//Paul help
+        String name = getIntent().getStringExtra("Name"); //Paul help
         String welcome = getIntent().getStringExtra("WelcomeMessage");
 
         welcomeMessage.setText(welcome);

@@ -107,10 +107,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewFavegenres = findViewById(R.id.textViewFavegenres);
         textViewusername = findViewById(R.id.textViewusername);
 
-        //mProfileNav = findViewById(R.id.profile_nav);
+        mProfileNav = findViewById(R.id.profile_nav);
 
-        //mProfileNav.setOnNavigationItemSelectedListener(this);
-        //mProfileNav.getMenu().findItem(R.id.navProfile).setChecked(true);
+        mProfileNav.setOnNavigationItemSelectedListener(this);
+        mProfileNav.getMenu().findItem(R.id.navProfile).setChecked(true);
 
         buttonEditProfile.setOnClickListener(this);
 
@@ -252,6 +252,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+
+        if (view == buttonEditProfile) {
+
+            Intent editProfileIntent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+            startActivity(editProfileIntent);
+
+        }
 
     }
 
