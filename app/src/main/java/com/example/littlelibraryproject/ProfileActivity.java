@@ -96,13 +96,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
         imageViewProfilephoto = findViewById(R.id.imageViewProfilephoto);
         textViewPhotoSubmissions = findViewById(R.id.textViewPhotoSubmissions);
-        //textViewFirstfaveaddress = findViewById(R.id.textViewFirstfave);
         textViewlongitude = findViewById(R.id.textViewlongitude);
         textViewFirstfaveaddress = findViewById(R.id.textViewFirstfaveaddress);
         imageViewlibuno = findViewById(R.id.imageViewlibuno);
-        textViewSecondfave = findViewById(R.id.textViewSecondfave);
-        textViewSecondfaveaddress = findViewById(R.id.textViewSecondfaveaddress);
-        imageViewSecondfave = findViewById(R.id.imageViewSecondfave);
         textViewFaveorites = findViewById(R.id.textViewFaveorites);
         textViewFavegenres = findViewById(R.id.textViewFavegenres);
         textViewusername = findViewById(R.id.textViewusername);
@@ -127,8 +123,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         final User u = dataSnapshot.getValue(User.class);
                         textViewusername.setText(u.name);
-                        textViewFavegenres.setText(u.favGenre);
-                        textViewFaveorites.setText(u.favLibrary);
+                        String completeGen = "Your favorite genre: " + u.favGenre;
+                        textViewFavegenres.setText(completeGen);
+
+                        String completeLib = "Your favorite library: " + u.favLibrary;
+                        textViewFaveorites.setText(completeLib);
 
                         myRef2.orderByChild("libraryName").equalTo(u.favLibrary).
                                 addChildEventListener(new ChildEventListener() {
@@ -136,8 +135,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                         //Toast.makeText(ProfileActivity.this, u.favLibrary, Toast.LENGTH_SHORT).show();
                                         Library l = dataSnapshot.getValue(Library.class);
-                                        textViewFirstfaveaddress.setText(Double.toString(l.latitude));
-                                        textViewlongitude.setText(Double.toString(l.longitude));
+                                        String textAddress = "GPS coordinates:" ;
+                                        textViewFirstfaveaddress.setText(textAddress);
+                                        String textCoordinates = "( " + Double.toString(l.latitude) + " , "
+                                                + Double.toString(l.longitude) + " )";
+                                        textViewlongitude.setText(textCoordinates);
                                     }
 
                                     @Override

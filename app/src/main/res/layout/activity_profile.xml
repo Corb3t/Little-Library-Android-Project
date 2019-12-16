@@ -11,11 +11,10 @@
         android:id="@+id/textViewPhotoSubmissions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="109dp"
-        android:text="Your Photo Submissions"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEditProfile"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="3dp"
+        android:text="Your Photo Submissions:"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewlibuno"
+        app:layout_constraintStart_toStartOf="@+id/textViewFaveorites" />
 
     <TextView
         android:id="@+id/textViewFaveorites"
@@ -57,44 +56,11 @@
         android:id="@+id/textViewFirstfaveaddress"
         android:layout_width="140dp"
         android:layout_height="24dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="110dp"
         android:hint="Address for Fave #1"
         android:textAlignment="textEnd"
-        app:layout_constraintBottom_toTopOf="@+id/textViewlongitude"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewlibuno"
+        app:layout_constraintStart_toStartOf="@+id/textViewFavegenres"
         app:layout_constraintTop_toBottomOf="@+id/textViewFavegenres" />
-
-    <TextView
-        android:id="@+id/textViewSecondfave"
-        android:layout_width="140dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="38dp"
-        android:hint="Faveorite #2"
-        android:textAlignment="textEnd"
-        android:textColor="#111010"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFirstfaveaddress" />
-
-    <TextView
-        android:id="@+id/textViewSecondfaveaddress"
-        android:layout_width="140dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="38dp"
-        android:hint="Address Fave #2"
-        android:textAlignment="textEnd"
-        android:textColor="#111010"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSecondfave"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSecondfave" />
 
     <Button
         android:id="@+id/buttonEditProfile"
@@ -102,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="130dp"
-        android:layout_marginBottom="54dp"
+        android:layout_marginBottom="78dp"
         android:text="Edit Your Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,32 +91,18 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFaveorites"
         app:srcCompat="@mipmap/mh" />
 
-    <ImageView
-        android:id="@+id/imageViewSecondfave"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewlibuno"
-        app:srcCompat="@mipmap/mhs" />
-
     <TextView
         android:id="@+id/textViewlongitude"
-        android:layout_width="114dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewSecondfave"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
-        app:layout_constraintStart_toEndOf="@+id/imageViewlibuno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewFirstfaveaddress"
         app:layout_constraintTop_toBottomOf="@+id/textViewFirstfaveaddress" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
