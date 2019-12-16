@@ -134,7 +134,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                 addChildEventListener(new ChildEventListener() {
                                     @Override
                                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                                        Toast.makeText(ProfileActivity.this, u.favLibrary, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(ProfileActivity.this, u.favLibrary, Toast.LENGTH_SHORT).show();
                                         Library l = dataSnapshot.getValue(Library.class);
                                         textViewFirstfaveaddress.setText(Double.toString(l.latitude));
                                         textViewlongitude.setText(Double.toString(l.longitude));
