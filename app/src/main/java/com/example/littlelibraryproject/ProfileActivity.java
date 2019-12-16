@@ -89,9 +89,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //mAuth = FirebaseAuth.getInstance();
-        //String email = mAuth.getCurrentUser().getEmail();
-        String email = "jdblackhurst@aol.com"; //uncomment out once we create the log in page
+        mAuth = FirebaseAuth.getInstance();
+        String email = mAuth.getCurrentUser().getEmail();
 
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
         imageViewProfilephoto = findViewById(R.id.imageViewProfilephoto);
@@ -116,9 +115,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         final DatabaseReference myRef = database.getReference().child("Users");
         final DatabaseReference myRef2 = database.getReference().child("Libraries");
 
-        myRef.orderByChild("username").equalTo(email).
-                //equalTo("Joe").
-                        addChildEventListener(new ChildEventListener() {
+        myRef.orderByChild("username").equalTo(email).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                         final User u = dataSnapshot.getValue(User.class);
