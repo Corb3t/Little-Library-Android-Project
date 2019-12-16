@@ -43,8 +43,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
 
         textViewLibraryAddress = findViewById ( R.id.textViewLibraryAddress );
         textViewLibraryGenres = findViewById ( R.id.textViewLibraryGenres );
-        textViewLibraryLatitude = findViewById(R.id.textViewLibraryLatitude);
-        textViewLibraryLongitude = findViewById(R.id.textViewLibraryLongitude);
+        //textViewLibraryLatitude = findViewById(R.id.textViewLibraryLatitude);
+        //textViewLibraryLongitude = findViewById(R.id.textViewLibraryLongitude);
 
         imageViewLibraryPhoto = findViewById ( R.id.imageViewLibraryPhoto );
         welcomeMessage = findViewById(R.id.textViewLibraryDescription);
@@ -57,16 +57,15 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         String name = getIntent().getStringExtra("Name"); //Paul help
         String welcome = getIntent().getStringExtra("WelcomeMessage");
         String genres = getIntent().getStringExtra("BookGenres");
-        //String latitude = getIntent().getStringExtra("latitude");
-        //String longitude = getIntent().getStringExtra("longitude");
-
+        //String stringlatitude = getIntent().getStringExtra("Latitude");
+        //String stringlongitude = getIntent().getStringExtra("Longitude");
 
 
         welcomeMessage.setText(welcome);
         textViewLibraryAddress.setText(name);
         textViewLibraryGenres.setText(genres);
         //textViewLibraryLatitude.setText(latitude);
-        //=textViewLibraryLongitude.setText(longitude);
+        //textViewLibraryLongitude.setText(longitude);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -80,11 +79,8 @@ public class LibraryActivity extends AppCompatActivity implements BottomNavigati
         buttonNavigateToLibrary.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                /*Uri navigationIntentUri = Uri.parse("google.navigation:q=" +  +"," + 2f);//creating intent with latlng
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);*/
-                Uri gmmIntentUri = Uri.parse("geo:latitude, longitude");
+
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=" + 83 + "," + -13);    //couldn't figure how to get the latlng string from infowindow into the Uri for navigation. Map pops up but fails
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);

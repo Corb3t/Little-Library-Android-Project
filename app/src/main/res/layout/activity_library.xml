@@ -21,9 +21,9 @@
         android:layout_width="217dp"
         android:layout_height="25dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="154dp"
-        android:text="Horror, children's..."
+        android:text="Fave genres go here"
         android:textColor="#161414"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,27 +46,11 @@
         android:layout_width="132dp"
         android:layout_height="170dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="143dp"
+        android:layout_marginTop="10dp"
         android:scaleType="fitXY"
         android:src="@drawable/owner"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryGenres"
-        app:layout_constraintVertical_bias="0.622" />
-
-    <TextView
-        android:id="@+id/textViewLibraryDescription"
-        android:layout_width="183dp"
-        android:layout_height="164dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="28dp"
-        android:text="Hi, this is my little free library! I'm happy you came to visit and I'm looking forward to collaborating with you on building our community!"
-        android:textColor="#161414"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddLibraryPhoto"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryGenres" />
 
     <Button
         android:id="@+id/buttonAddLibraryPhoto"
@@ -113,27 +97,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation" />
 
-    <TextView
-        android:id="@+id/textViewLibraryLatitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="19dp"
-        android:text="Latitude"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/buttonNavigateToLibrary"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryAddress" />
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_width="179dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewOwner"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryGenres">
 
-    <TextView
-        android:id="@+id/textViewLibraryLongitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="2dp"
-        android:text="Longitude"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/buttonNavigateToLibrary"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryLatitude" />
+        <TextView
+            android:id="@+id/textViewLibraryDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hi, this is my little free library! I'm happy you came to visit and I'm looking forward to collaborating with you on building our community!"
+            android:textColor="#161414" />
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,11 +87,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onInfoWindowClick(Marker marker) {
                 String name = marker.getTitle();
                 Intent I = new Intent(MapsActivity.this, LibraryActivity.class);
-                I.putExtra("WelcomeMessage", Libraries.get(name).welcomeMessage);
                 I.putExtra("Name", name);
+                I.putExtra("Latitude", Libraries.get(name).latitude);
+                I.putExtra("Longitude", Libraries.get(name).longitude);
+                I.putExtra("WelcomeMessage", Libraries.get(name).welcomeMessage);
                 I.putExtra("BookGenres", Libraries.get(name).genres);
-                I.putExtra("latitude", Libraries.get(name).latitude);
-                I.putExtra("longitude", Libraries.get(name).longitude);
+
                 startActivity(I);
             }
         });
